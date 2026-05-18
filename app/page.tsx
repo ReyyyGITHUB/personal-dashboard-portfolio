@@ -1,82 +1,12 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import Image from "next/image";
 import { DesktopSidebar } from "@/components/desktop-sidebar";
 import { BrandIcon } from "@/components/icons/brand-icons";
-import { RevealOnScroll } from "@/components/reveal-on-scroll";
-import { SpotlightCard } from "@/components/spotlight-card";
+import { MobileSidebar } from "@/components/mobile-sidebar";
+import { TypingHeadline } from "@/components/typing-headline";
 
-const navItems = [
-  { label: "Beranda", href: "/", icon: "home", active: true },
-  { label: "Proyek", href: "/projects", icon: "projects", active: false },
-  { label: "Cerita", href: "/journey", icon: "journey", active: false },
-  { label: "Stack", href: "/stack", icon: "stack", active: false },
-  { label: "Kontak", href: "/contact", icon: "contact", active: false },
-] as const;
+import { featuredProjects, navItems, proofTickerItems, stack } from "@/lib/home-data";
 
-const quickLinks = [
-  { label: "Instagram", href: "https://instagram.com/", icon: "instagram" },
-  { label: "Threads", href: "https://threads.net/", icon: "threads" },
-] as const;
-
-const featuredProjects = [
-  {
-    title: "Portfolio OS",
-    type: "Dashboard personal",
-    result: "Shell multi-halaman, kartu bukti, dan struktur rute yang rapi.",
-    stack: ["Next.js", "Tailwind", "UX"],
-    image: "/projects/portfolio-os.svg",
-    accent: "bg-clay-violet",
-    role: "Frontend",
-    status: "Live",
-  },
-  {
-    title: "Smart Farm Monitor",
-    type: "Prototipe IoT",
-    result: "Logika sensor, tampilan dashboard, dan alur otomasi Arduino.",
-    stack: ["Arduino", "C++", "UI"],
-    image: "/projects/smart-farm-monitor.svg",
-    accent: "bg-lime-pop",
-    role: "IoT Logic",
-    status: "Prototype",
-  },
-  {
-    title: "Sistem Studi Kasus",
-    type: "Format bukti proyek",
-    result: "Layout cerita reusable untuk masalah, peran, proses, dan hasil.",
-    stack: ["UX Writing", "Konten", "Next.js"],
-    image: "/projects/case-study-system.svg",
-    accent: "bg-tangerine",
-    role: "UX Writing",
-    status: "Draft",
-  },
-  {
-    title: "Command Workspace",
-    type: "Prototipe interaksi",
-    result: "Model navigasi keyboard-first buat eksplorasi portfolio yang cepat.",
-    stack: ["React", "Command UI", "A11y"],
-    image: "/projects/command-workspace.svg",
-    accent: "bg-azure-glow",
-    role: "Interaction",
-    status: "Prototype",
-  },
-];
-
-const stack = [
-  { label: "Next.js", className: "border-pitch-black/15 bg-pitch-black text-ghost-white dark:border-ghost-white/20" },
-  { label: "Tailwind", className: "border-azure-glow/30 bg-azure-glow/15 text-[#09687d]" },
-  { label: "React", className: "border-vivid-sky/30 bg-vivid-sky/15 text-[#145f9f]" },
-  { label: "TypeScript", className: "border-clay-violet/25 bg-clay-violet/10 text-clay-violet" },
-  { label: "Arduino", className: "border-lime-pop/40 bg-lime-pop/25 text-[#5f6f24]" },
-  { label: "UX Writing", className: "border-tangerine/25 bg-tangerine/10 text-[#a74900]" },
-  { label: "Figma", className: "border-ube-haze/40 bg-ube-haze/25 text-[#5b43b3]" },
-  { label: "Vercel", className: "border-dashboard-outline-variant bg-dashboard-surface-low text-dashboard-on-surface" },
-] as const;
-const proofTickerItems = [
-  { icon: "/icons/tech/nextjs.svg", label: "Next.js" },
-  { icon: "/icons/tech/arduino.svg", label: "Arduino" },
-  { icon: "/icons/tech/figma.svg", label: "Sistem UI" },
-  { icon: "/icons/tech/vercel.svg", label: "Studi Kasus" },
-] as const;
 const focusRing =
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay-violet focus-visible:ring-offset-2 focus-visible:ring-offset-dashboard-background";
 
@@ -206,113 +136,138 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen bg-dashboard-background text-dashboard-on-background">
-      <Preloader />
-
       <div className="home-shell min-h-screen w-full">
         <DesktopSidebar navItems={navItems} focusRing={focusRing} />
 
         <section className="flex min-w-0 flex-1 flex-col transition-[padding] duration-300 ease-out lg:pl-[var(--sidebar-width,240px)]">
-          <header className="sticky top-0 z-20 flex items-center justify-between border-b border-dashboard-outline-variant bg-dashboard-background/90 px-5 py-4 backdrop-blur lg:hidden">
-            <Link href="/" className={`flex items-center gap-3 rounded-xl ${focusRing}`}>
-              <span className="grid size-9 place-items-center rounded-xl bg-pitch-black text-xs font-bold text-ghost-white">
+          <header className="sticky top-0 z-20 flex items-center justify-between border-b border-dashboard-outline-variant/70 bg-dashboard-background/80 px-4 py-2.5 backdrop-blur-sm lg:hidden">
+            <Link href="/" className={`flex items-center gap-2.5 rounded-xl ${focusRing}`}>
+              <span className="grid size-8 place-items-center rounded-lg bg-pitch-black text-xs font-bold text-ghost-white">
                 R
               </span>
               <span>
-                <span className="block text-sm font-bold">Rayhan OS</span>
-                <span className="block text-[11px] font-medium text-dashboard-on-surface-variant">
-                  Dashboard playful · Sistem UI · Prototipe IoT
-                </span>
+                <span className="block text-sm font-bold leading-none">Rayhan OS</span>
+                <span className="mt-1 block text-[10px] font-medium leading-none text-dashboard-on-surface-variant">Dashboard</span>
               </span>
             </Link>
-            <button className={`rounded-xl border border-dashboard-outline-variant px-3 py-2 text-sm font-bold ${focusRing}`}>
-              Menu
-            </button>
+            <MobileSidebar navItems={navItems} focusRing={focusRing} />
           </header>
 
           <div className="mx-auto grid w-full max-w-[1200px] grid-cols-1 gap-4 px-5 py-5 sm:px-6 lg:grid-cols-12 lg:gap-5 lg:px-10 lg:py-8">
-            <SpotlightCard
-              className="group rounded-[2.25rem] border border-dashboard-outline-variant bg-dashboard-surface-lowest p-6 shadow-subtle lg:col-span-8 lg:p-8"
-              spotlightColor="rgba(203, 216, 16, 0.22)"
-            >
-              <p className="mb-4 inline-flex rounded-full border border-dashboard-outline-variant bg-dashboard-surface-low px-3 py-1 text-xs font-semibold tracking-[0.03em] text-dashboard-on-surface-variant">
-                Dashboard playful · Sistem UI · Prototipe IoT
-              </p>
-              <h1 className="max-w-2xl text-4xl font-bold leading-[1.04] tracking-[-0.04em] text-dashboard-on-surface sm:text-5xl lg:text-5xl">
-                Rayhan bikin dashboard, interface, dan cerita proyek yang bisa dicek.
-              </h1>
-              <p className="mt-4 max-w-xl text-base leading-7 text-dashboard-on-surface-variant">
-                Gua bikin dashboard web yang cepat, sistem UI yang rapi, dan bukti proyek yang nggak cuma pajangan.
-              </p>
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                <Link
-                  href="/projects"
-                  className={`inline-flex items-center justify-center gap-2 rounded-xl bg-pitch-black px-5 py-3 text-sm font-bold text-ghost-white transition-transform hover:-translate-y-0.5 ${focusRing}`}
-                >
-                  Lihat proyek
-                  <BrandIcon name="arrow-up-right" />
-                </Link>
-                <Link
-                  href="/contact"
-                  className={`inline-flex items-center justify-center gap-2 rounded-xl border border-dashboard-outline-variant bg-dashboard-surface-lowest px-5 py-3 text-sm font-bold text-dashboard-on-surface transition-all hover:-translate-y-0.5 hover:bg-dashboard-surface-low ${focusRing}`}
-                >
-                  <BrandIcon name="mail" />
-                  Kontak
-                </Link>
+            <section className="group flex flex-col justify-between gap-8 rounded-[2.25rem] border border-dashboard-outline-variant bg-dashboard-surface-lowest p-6 shadow-subtle lg:col-span-8 lg:p-8">
+              <div>
+                <p className="mb-4 inline-flex rounded-full border border-dashboard-outline-variant bg-dashboard-surface-low px-3 py-1 text-xs font-semibold tracking-[0.03em] text-dashboard-on-surface-variant">
+                  Dashboard playful Â· Sistem UI Â· Prototipe IoT
+                </p>
+                <h1 className="max-w-2xl text-4xl font-bold leading-[1.04] tracking-[-0.04em] text-dashboard-on-surface sm:text-5xl lg:text-5xl">
+                  <span className="sr-only">Gua bikin dashboard, interface, dan cerita proyek yang bisa dicek.</span>
+                  <TypingHeadline />.
+                </h1>
+                <p className="mt-4 max-w-xl text-base leading-7 text-dashboard-on-surface-variant">
+                  Gua bikin dashboard web yang cepat, sistem UI yang rapi, dan bukti proyek yang nggak cuma pajangan.
+                </p>
+                <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                  <Link
+                    href="/projects"
+                    className={`inline-flex items-center justify-center gap-2 rounded-xl bg-pitch-black px-5 py-3 text-sm font-bold text-ghost-white transition-transform hover:-translate-y-0.5 ${focusRing}`}
+                  >
+                    Lihat proyek
+                    <BrandIcon name="arrow-up-right" />
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className={`inline-flex items-center justify-center gap-2 rounded-xl border border-dashboard-outline-variant bg-dashboard-surface-lowest px-5 py-3 text-sm font-bold text-dashboard-on-surface transition-all hover:-translate-y-0.5 hover:bg-dashboard-surface-low ${focusRing}`}
+                  >
+                    <BrandIcon name="mail" />
+                    Kontak
+                  </Link>
+                </div>
               </div>
-            </SpotlightCard>
 
+              <div className="grid gap-4 border-t border-dashboard-outline-variant pt-5 sm:grid-cols-2">
+                <div>
+                  <p className="text-[10px] font-black uppercase tracking-[0.14em] text-dashboard-outline">Now building</p>
+                  <p className="mt-2 text-sm font-black tracking-[-0.02em] text-dashboard-on-surface">Portfolio OS</p>
+                  <p className="mt-1 text-sm leading-6 text-dashboard-on-surface-variant">
+                    App shell, case study, proof cards.
+                  </p>
+                </div>
+                <div>
+                  <p className="text-[10px] font-black uppercase tracking-[0.14em] text-dashboard-outline">Proof snapshot</p>
+                  <p className="mt-2 text-sm font-black tracking-[-0.02em] text-dashboard-on-surface">
+                    {featuredProjects.length} proyek unggulan
+                  </p>
+                  <p className="mt-1 text-sm leading-6 text-dashboard-on-surface-variant">Next.js, Tailwind, UI, IoT.</p>
+                </div>
+              </div>
+            </section>
             <aside className="overflow-hidden rounded-[2.25rem] border border-dashboard-outline-variant bg-dashboard-surface-lowest shadow-subtle lg:col-span-4">
-              <div className="p-4">
-                <div className="flex items-center gap-3">
-                  <div className="grid size-14 shrink-0 place-items-center rounded-2xl bg-pitch-black text-xl font-black text-ghost-white">
+              <div className="flex h-full flex-col items-center px-5 py-6 text-center">
+                <div className="relative">
+                  <div className="grid size-20 place-items-center rounded-[1.75rem] bg-pitch-black text-3xl font-black tracking-[-0.06em] text-ghost-white shadow-subtle">
                     R
                   </div>
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <h2 className="text-xl font-black tracking-[-0.04em] text-dashboard-on-surface">Rayhan</h2>
-                      <span className="rounded-full bg-lime-pop px-2 py-0.5 text-[10px] font-black uppercase tracking-[0.12em] text-pitch-black">
-                        Pelajar
-                      </span>
-                    </div>
-                    <p className="mt-1 text-xs font-bold uppercase tracking-[0.14em] text-dashboard-outline">Student Builder</p>
-                  </div>
+                  <span className="absolute -bottom-1 -right-1 size-5 rounded-full border-4 border-dashboard-surface-lowest bg-lime-pop" />
                 </div>
 
-                <p className="mt-3 text-sm font-semibold leading-6 text-dashboard-on-surface-variant">
-                  Belajar lewat project nyata. Lagi ngerjain Portfolio OS.
+                <h2 className="mt-4 text-2xl font-black tracking-[-0.05em] text-dashboard-on-surface">Rayhan</h2>
+                <p className="mt-1 text-sm font-semibold text-dashboard-on-surface-variant">Student builder</p>
+
+                <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-dashboard-outline-variant bg-dashboard-surface-low px-3 py-1.5 text-xs font-semibold text-dashboard-on-surface">
+                  <span className="size-2 rounded-full bg-lime-pop" />
+                  Buka buat project kecil
+                </div>
+
+                <p className="mt-5 text-sm font-semibold text-dashboard-on-surface">Frontend, dashboard UI, dan IoT kecil</p>
+                <p className="mt-1 max-w-[240px] text-sm font-semibold leading-6 text-dashboard-on-surface-variant">
+                  Lagi ngerapihin Portfolio OS sambil belajar lewat project yang beneran dibuat.
                 </p>
 
-                <div className="mt-4 grid grid-cols-3 gap-2 text-center">
-                  <div className="rounded-2xl bg-dashboard-surface-low px-2 py-2">
-                    <p className="text-xl font-black tracking-[-0.04em]">5+</p>
-                    <p className="text-[10px] font-bold text-dashboard-on-surface-variant">Project</p>
+                <div className="mt-6 grid w-full grid-cols-3 divide-x divide-dashboard-outline-variant rounded-3xl bg-dashboard-surface-low px-2 py-3">
+                  <div>
+                    <p className="text-xl font-black tracking-[-0.05em]">5+</p>
+                    <p className="mt-0.5 text-[10px] font-bold text-dashboard-on-surface-variant">Project</p>
                   </div>
-                  <div className="rounded-2xl bg-dashboard-surface-low px-2 py-2">
-                    <p className="text-xl font-black tracking-[-0.04em]">8</p>
-                    <p className="text-[11px] font-bold text-dashboard-on-surface-variant">Stack</p>
+                  <div>
+                    <p className="text-xl font-black tracking-[-0.05em]">8</p>
+                    <p className="mt-0.5 text-[10px] font-bold text-dashboard-on-surface-variant">Stack</p>
                   </div>
-                  <div className="rounded-2xl bg-dashboard-surface-low px-2 py-2">
-                    <p className="text-xl font-black tracking-[-0.04em]">2</p>
-                    <p className="text-[10px] font-bold text-dashboard-on-surface-variant">IoT</p>
+                  <div>
+                    <p className="text-xl font-black tracking-[-0.05em]">Open</p>
+                    <p className="mt-0.5 text-[10px] font-bold text-dashboard-on-surface-variant">Collab</p>
                   </div>
                 </div>
 
-                <div className="mt-3 rounded-2xl border border-dashboard-outline-variant px-3 py-2">
-                  <p className="text-[10px] font-black uppercase tracking-[0.12em] text-dashboard-outline">Project dikerjakan</p>
-                  <p className="mt-1 text-sm font-black tracking-[-0.02em]">Portfolio OS</p>
-                </div>
+                <Link
+                  href="/projects"
+                  className={`mt-5 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-pitch-black px-5 py-3 text-sm font-bold text-ghost-white transition-transform hover:-translate-y-0.5 ${focusRing}`}
+                >
+                  View Projects
+                  <BrandIcon name="arrow-up-right" className="size-4" />
+                </Link>
 
-                <div className="mt-3 grid grid-cols-2 gap-2">
-                  {quickLinks.map((item) => (
-                    <Link
-                      key={item.label}
-                      href={item.href}
-                      className={`inline-flex items-center justify-center gap-2 rounded-xl border border-dashboard-outline-variant bg-dashboard-surface-low px-3 py-2 text-center text-xs font-bold transition-colors hover:border-dashboard-outline hover:bg-ghost-white dark:hover:bg-dashboard-surface-lowest ${focusRing}`}
-                    >
-                      <BrandIcon name={item.icon} className="size-5" />
-                      <span className="text-[10px] font-black uppercase tracking-[0.08em]">{item.label}</span>
-                    </Link>
-                  ))}
+                <div className="mt-4 grid w-full grid-cols-3 gap-2">
+                  <Link
+                    href="https://github.com/ReyyyGITHUB"
+                    className={`inline-flex min-w-0 items-center justify-center gap-1.5 rounded-xl border border-dashboard-outline-variant bg-dashboard-surface-low px-2.5 py-2 text-xs font-semibold text-pitch-black transition-colors hover:border-dashboard-outline hover:bg-ghost-white dark:text-ghost-white dark:hover:bg-dashboard-surface-lowest ${focusRing}`}
+                  >
+                    <BrandIcon name="github" className="size-4" />
+                    GitHub
+                  </Link>
+                  <Link
+                    href="https://instagram.com/"
+                    className={`inline-flex min-w-0 items-center justify-center gap-1.5 rounded-xl border border-dashboard-outline-variant bg-dashboard-surface-low px-2.5 py-2 text-xs font-semibold text-dragonfruit-pink transition-colors hover:border-dashboard-outline hover:bg-ghost-white dark:hover:bg-dashboard-surface-lowest ${focusRing}`}
+                  >
+                    <BrandIcon name="instagram" className="size-4" />
+                    Instagram
+                  </Link>
+                  <Link
+                    href="https://threads.net/"
+                    className={`inline-flex min-w-0 items-center justify-center gap-1.5 rounded-xl border border-dashboard-outline-variant bg-dashboard-surface-low px-2.5 py-2 text-xs font-semibold text-dashboard-on-surface transition-colors hover:border-dashboard-outline hover:bg-ghost-white dark:hover:bg-dashboard-surface-lowest ${focusRing}`}
+                  >
+                    <BrandIcon name="threads" className="size-4" />
+                    Threads
+                  </Link>
                 </div>
               </div>
             </aside>
@@ -350,8 +305,8 @@ export default async function Home() {
 
               <div className="relative">
                 <div className="grid gap-4 pb-20 md:grid-cols-2">
-                  {featuredProjects.map((project, index) => (
-                    <RevealOnScroll key={project.title} className="h-full" delayMs={index * 80}>
+                  {featuredProjects.map((project) => (
+                    <div key={project.title} className="h-full">
                       <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-dashboard-outline-variant bg-dashboard-surface-lowest p-4 shadow-subtle transition-colors hover:border-dashboard-outline md:min-h-[520px]">
                     <ProjectThumbnail alt={`${project.title} preview`} src={project.image} />
                     <div className="mt-4 flex items-center gap-2">
@@ -400,7 +355,7 @@ export default async function Home() {
                       </Link>
                     </div>
                       </article>
-                    </RevealOnScroll>
+                    </div>
                   ))}
                 </div>
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 flex h-72 items-end justify-center rounded-b-[2rem] bg-gradient-to-t from-ghost-white via-ghost-white/92 via-60% to-ghost-white/0 pb-24 dark:from-dashboard-background dark:via-dashboard-background/90 dark:to-dashboard-background/0">
@@ -420,15 +375,9 @@ export default async function Home() {
             </section>
 
             <section className="grid gap-4 lg:col-span-4">
-              <RevealOnScroll>
-                <GitHubActivityCard activity={githubActivity} />
-              </RevealOnScroll>
+              <GitHubActivityCard activity={githubActivity} />
+              <GitHubCommitFeed commits={githubCommits} />
 
-              <RevealOnScroll delayMs={80}>
-                <GitHubCommitFeed commits={githubCommits} />
-              </RevealOnScroll>
-
-              <RevealOnScroll delayMs={120}>
               <article className="rounded-3xl border border-dashboard-outline-variant bg-dashboard-surface-lowest p-5 shadow-subtle transition-transform hover:-translate-y-0.5">
                 <p className="flex items-center gap-2 text-xs font-semibold tracking-[0.03em] text-dashboard-outline">
                   <span className="grid size-9 place-items-center rounded-xl bg-lime-pop text-pitch-black">
@@ -438,9 +387,9 @@ export default async function Home() {
                 </p>
                 <div className="mt-4 space-y-4">
                   {[
-                    ["2026 · Bangun ulang portfolio", "UX dashboard, bukan template satu halaman.", "bg-clay-violet"],
-                    ["Sekarang · Bukti lebih kuat", "Studi kasus dengan konteks, peran, dan hasil.", "bg-oatmeal"],
-                    ["Berikutnya · Sistem preview", "Modal pakai poster dulu, tanpa iframe berat.", "bg-lime-pop"],
+                    ["2026 Ã‚Â· Bangun ulang portfolio", "UX dashboard, bukan template satu halaman.", "bg-clay-violet"],
+                    ["Sekarang Ã‚Â· Bukti lebih kuat", "Studi kasus dengan konteks, peran, dan hasil.", "bg-oatmeal"],
+                    ["Berikutnya Ã‚Â· Sistem preview", "Modal pakai poster dulu, tanpa iframe berat.", "bg-lime-pop"],
                   ].map(([title, body, dot]) => (
                     <div key={title} className="flex gap-3 text-sm leading-6">
                       <span className={`mt-2 size-2.5 shrink-0 rounded-full ${dot}`} />
@@ -452,9 +401,7 @@ export default async function Home() {
                   ))}
                 </div>
               </article>
-              </RevealOnScroll>
 
-              <RevealOnScroll delayMs={160}>
               <section className="rounded-3xl border border-dashboard-outline-variant bg-dashboard-surface-lowest p-5 shadow-subtle transition-transform hover:-translate-y-0.5">
                 <div className="flex items-start justify-between gap-4">
                   <div>
@@ -478,7 +425,6 @@ export default async function Home() {
                   ))}
                 </div>
               </section>
-              </RevealOnScroll>
             </section>
           </div>
         </section>
@@ -522,7 +468,7 @@ function GitHubCommitFeed({ commits }: { commits: GitHubCommit[] }) {
             >
               <span className="block truncate text-sm font-bold tracking-[-0.02em]">{commit.message}</span>
               <span className="mt-1 block text-xs font-semibold text-dashboard-on-surface-variant">
-                {commit.repo} · {formatCommitDate(commit.pushedAt)}
+                {commit.repo} Ã‚Â· {formatCommitDate(commit.pushedAt)}
               </span>
             </Link>
           ))}
@@ -606,7 +552,7 @@ function GitHubActivityCard({ activity }: { activity: GitHubActivity | null }) {
         className={`mt-4 inline-flex items-center gap-2 rounded-lg text-sm font-bold text-[#5f6f24] underline-offset-4 hover:underline dark:text-[#b6c65a] ${focusRing}`}
       >
         <BrandIcon name="github" />
-        Buka GitHub →
+        Buka GitHub Ã¢â€ â€™
       </Link>
     </article>
   );
@@ -626,58 +572,6 @@ function getContributionClass(count: number) {
   if (count <= 10) return "bg-[#8f9f3f]";
   return "bg-[#5f6f24]";
 }
-
-function Preloader() {
-  return (
-    <div className="preloader fixed inset-0 z-50 grid place-items-center bg-dashboard-background p-5">
-      <section
-        aria-label="Loading dashboard"
-        className="flex min-h-[360px] w-full max-w-md flex-col overflow-hidden rounded-[2.5rem] border border-dashboard-outline-variant bg-dashboard-surface-lowest p-6 text-center shadow-subtle sm:p-8"
-      >
-        <div className="mb-8 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <span className="grid size-12 place-items-center rounded-2xl bg-pitch-black text-sm font-bold text-ghost-white">
-              R
-            </span>
-            <span className="text-left">
-              <span className="block text-sm font-bold">Rayhan OS</span>
-              <span className="block text-xs font-medium text-dashboard-on-surface-variant">Shell portfolio</span>
-            </span>
-          </div>
-          <span className="rounded-full bg-lime-pop px-3 py-1 text-xs font-bold text-pitch-black">Siap</span>
-        </div>
-
-        <div className="grid flex-1 place-items-center">
-          <div>
-            <div className="mx-auto mb-8 grid size-20 grid-cols-2 gap-2 rounded-[2rem] bg-dashboard-surface-low p-4">
-              <span className="rounded-xl bg-clay-violet" />
-              <span className="rounded-xl bg-ube-haze" />
-              <span className="rounded-xl bg-lime-pop" />
-              <span className="rounded-xl bg-dashboard-outline-variant" />
-            </div>
-
-            <h2 className="mb-2 text-2xl font-bold leading-tight tracking-[-0.01em]">
-              Membuka workspace Rayhan
-            </h2>
-            <p className="loading-step text-base leading-relaxed text-dashboard-on-surface-variant">
-              Menyiapkan proyek
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-8">
-          <div className="h-2 overflow-hidden rounded-full bg-dashboard-surface-low">
-            <div className="loading-progress h-full rounded-full bg-dashboard-primary" />
-          </div>
-          <p className="mt-3 text-xs font-bold leading-tight text-dashboard-outline">
-            Proyek, catatan, dan kontak siap
-          </p>
-        </div>
-      </section>
-    </div>
-  );
-}
-
 
 
 

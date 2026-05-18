@@ -73,18 +73,6 @@ html {
   scroll-behavior: smooth;
 }
 
-@keyframes preloader-exit {
-  0%,
-  72% {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  100% {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
 
 @keyframes home-enter {
   from {
@@ -106,37 +94,6 @@ html {
   }
 }
 
-@keyframes loading-copy {
-  0%,
-  35% {
-    content: "Preparing projects";
-  }
-
-  36%,
-  70% {
-    content: "Checking latest notes";
-  }
-
-  71%,
-  100% {
-    content: "Opening dashboard";
-  }
-}
-
-@keyframes loading-progress {
-  from {
-    transform: scaleX(0.18);
-  }
-
-  to {
-    transform: scaleX(1);
-  }
-}
-
-.preloader {
-  animation: preloader-exit 1.8s ease forwards;
-  pointer-events: none;
-}
 
 .home-shell {
   animation: home-enter 320ms ease-out both;
@@ -155,29 +112,9 @@ html {
   animation-play-state: paused;
 }
 
-.loading-step {
-  font-size: 0;
-}
-
-.loading-step::after {
-  animation: loading-copy 1.8s linear forwards;
-  content: "Preparing projects";
-  font-size: 1rem;
-}
-
-.loading-progress {
-  animation: loading-progress 1.8s ease forwards;
-  transform: scaleX(0.18);
-  transform-origin: left;
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  .preloader {
-    animation-duration: 0.2s;
   }
 
   .home-shell {

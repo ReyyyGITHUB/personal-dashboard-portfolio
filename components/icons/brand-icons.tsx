@@ -8,6 +8,7 @@ export type BrandIconName =
   | "journey"
   | "linkedin"
   | "mail"
+  | "menu"
   | "now"
   | "preview"
   | "projects"
@@ -147,6 +148,16 @@ export function BrandIcon({ name, className = "size-5" }: BrandIconProps) {
       <svg {...iconProps} viewBox="0 0 24 24">
         <path d="M4.5 6.5h15v11h-15z" />
         <path d="m5 7 7 5.5L19 7" />
+      </svg>
+    );
+  }
+
+  if (name === "menu") {
+    return (
+      <svg {...iconProps} viewBox="0 0 24 24">
+        <path d="M5 7h14" />
+        <path d="M5 12h14" />
+        <path d="M5 17h14" />
       </svg>
     );
   }
