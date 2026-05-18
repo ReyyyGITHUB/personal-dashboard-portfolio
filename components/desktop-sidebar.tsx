@@ -41,7 +41,7 @@ export function DesktopSidebar({ navItems, focusRing }: DesktopSidebarProps) {
             <span className="min-w-0">
               <span className="block text-sm font-bold tracking-[-0.01em]">Rayhan OS</span>
               <span className="block truncate text-xs font-medium text-dashboard-on-surface-variant">
-                Dashboard playful Â· Sistem UI Â· Prototipe IoT
+                Dashboard playful · Sistem UI · Prototipe IoT
               </span>
             </span>
           ) : null}

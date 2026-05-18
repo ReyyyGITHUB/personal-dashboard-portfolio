@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import Image from "next/image";
 import { DesktopSidebar } from "@/components/desktop-sidebar";
 import { BrandIcon } from "@/components/icons/brand-icons";
@@ -156,8 +156,8 @@ export default async function Home() {
           <div className="mx-auto grid w-full max-w-[1200px] grid-cols-1 gap-4 px-5 py-5 sm:px-6 lg:grid-cols-12 lg:gap-5 lg:px-10 lg:py-8">
             <section className="group flex flex-col justify-between gap-8 rounded-[2.25rem] border border-dashboard-outline-variant bg-dashboard-surface-lowest p-6 shadow-subtle lg:col-span-8 lg:p-8">
               <div>
-                <p className="mb-4 inline-flex rounded-full border border-dashboard-outline-variant bg-dashboard-surface-low px-3 py-1 text-xs font-semibold tracking-[0.03em] text-dashboard-on-surface-variant">
-                  Dashboard playful Â· Sistem UI Â· Prototipe IoT
+                <p className="mb-4 inline-flex rounded-full border border-dashboard-outline-variant bg-dashboard-surface-low px-2.5 py-1 text-[11px] font-semibold tracking-[0.03em] text-dashboard-on-surface-variant">
+                  Dashboard playful · Sistem UI · Prototipe IoT
                 </p>
                 <h1 className="max-w-2xl text-4xl font-bold leading-[1.04] tracking-[-0.04em] text-dashboard-on-surface sm:text-5xl lg:text-5xl">
                   <span className="sr-only">Gua bikin dashboard, interface, dan cerita proyek yang bisa dicek.</span>
@@ -184,17 +184,17 @@ export default async function Home() {
                 </div>
               </div>
 
-              <div className="grid gap-4 border-t border-dashboard-outline-variant pt-5 sm:grid-cols-2">
-                <div>
-                  <p className="text-[10px] font-black uppercase tracking-[0.14em] text-dashboard-outline">Now building</p>
-                  <p className="mt-2 text-sm font-black tracking-[-0.02em] text-dashboard-on-surface">Portfolio OS</p>
+              <div className="grid gap-3 border-t border-dashboard-outline-variant pt-5 sm:grid-cols-2">
+                <div className="rounded-2xl border border-dashboard-outline-variant bg-dashboard-surface-low px-4 py-3">
+                  <p className="text-xs font-semibold text-dashboard-outline">Now building</p>
+                  <p className="mt-2 text-sm font-bold tracking-[-0.02em] text-dashboard-on-surface">Portfolio OS</p>
                   <p className="mt-1 text-sm leading-6 text-dashboard-on-surface-variant">
                     App shell, case study, proof cards.
                   </p>
                 </div>
-                <div>
-                  <p className="text-[10px] font-black uppercase tracking-[0.14em] text-dashboard-outline">Proof snapshot</p>
-                  <p className="mt-2 text-sm font-black tracking-[-0.02em] text-dashboard-on-surface">
+                <div className="rounded-2xl border border-dashboard-outline-variant bg-dashboard-surface-low px-4 py-3">
+                  <p className="text-xs font-semibold text-dashboard-outline">Proof snapshot</p>
+                  <p className="mt-2 text-sm font-bold tracking-[-0.02em] text-dashboard-on-surface">
                     {featuredProjects.length} proyek unggulan
                   </p>
                   <p className="mt-1 text-sm leading-6 text-dashboard-on-surface-variant">Next.js, Tailwind, UI, IoT.</p>
@@ -218,11 +218,22 @@ export default async function Home() {
                   Buka buat project kecil
                 </div>
 
-                <p className="mt-5 text-sm font-semibold text-dashboard-on-surface">Frontend, dashboard UI, dan IoT kecil</p>
                 <p className="mt-1 max-w-[240px] text-sm font-semibold leading-6 text-dashboard-on-surface-variant">
                   Lagi ngerapihin Portfolio OS sambil belajar lewat project yang beneran dibuat.
                 </p>
 
+
+                <div className="mt-4 flex w-full flex-nowrap justify-center gap-2">
+                  <span className="rounded-full border border-clay-violet/20 bg-clay-violet/10 px-2.5 py-1 text-[11px] font-semibold text-clay-violet">
+                    Next.js
+                  </span>
+                  <span className="rounded-full border border-azure-glow/30 bg-azure-glow/15 px-2.5 py-1 text-[11px] font-semibold text-[#09687d]">
+                    Tailwind
+                  </span>
+                  <span className="rounded-full border border-lime-pop/40 bg-lime-pop/25 px-2.5 py-1 text-[11px] font-semibold text-[#5f6f24]">
+                    Arduino
+                  </span>
+                </div>
                 <div className="mt-6 grid w-full grid-cols-3 divide-x divide-dashboard-outline-variant rounded-3xl bg-dashboard-surface-low px-2 py-3">
                   <div>
                     <p className="text-xl font-black tracking-[-0.05em]">5+</p>
@@ -387,9 +398,9 @@ export default async function Home() {
                 </p>
                 <div className="mt-4 space-y-4">
                   {[
-                    ["2026 Ã‚Â· Bangun ulang portfolio", "UX dashboard, bukan template satu halaman.", "bg-clay-violet"],
-                    ["Sekarang Ã‚Â· Bukti lebih kuat", "Studi kasus dengan konteks, peran, dan hasil.", "bg-oatmeal"],
-                    ["Berikutnya Ã‚Â· Sistem preview", "Modal pakai poster dulu, tanpa iframe berat.", "bg-lime-pop"],
+                    ["2026 · Bangun ulang portfolio", "UX dashboard, bukan template satu halaman.", "bg-clay-violet"],
+                    ["Sekarang · Bukti lebih kuat", "Studi kasus dengan konteks, peran, dan hasil.", "bg-oatmeal"],
+                    ["Berikutnya · Sistem preview", "Modal pakai poster dulu, tanpa iframe berat.", "bg-lime-pop"],
                   ].map(([title, body, dot]) => (
                     <div key={title} className="flex gap-3 text-sm leading-6">
                       <span className={`mt-2 size-2.5 shrink-0 rounded-full ${dot}`} />
@@ -468,7 +479,7 @@ function GitHubCommitFeed({ commits }: { commits: GitHubCommit[] }) {
             >
               <span className="block truncate text-sm font-bold tracking-[-0.02em]">{commit.message}</span>
               <span className="mt-1 block text-xs font-semibold text-dashboard-on-surface-variant">
-                {commit.repo} Ã‚Â· {formatCommitDate(commit.pushedAt)}
+                {commit.repo} · {formatCommitDate(commit.pushedAt)}
               </span>
             </Link>
           ))}
@@ -522,11 +533,13 @@ function GitHubActivityCard({ activity }: { activity: GitHubActivity | null }) {
             aria-label={`${activity.totalContributions} kontribusi GitHub tahun ini`}
           >
             {recentDays.map((day) => (
-              <span
-                key={day.date}
-                className={`size-2.5 rounded-[3px] ${getContributionClass(day.contributionCount)}`}
-                title={`${day.date}: ${day.contributionCount} contributions`}
-              />
+              <span key={day.date} className="group relative grid place-items-center" aria-label={`${day.contributionCount} kontribusi pada ${formatContributionDate(day.date)}`} tabIndex={0}>
+                <span className={`size-2.5 rounded-[3px] ${getContributionClass(day.contributionCount)}`} />
+                <span className="pointer-events-none absolute bottom-full left-1/2 z-10 mb-2 w-max max-w-36 -translate-x-1/2 rounded-xl border border-dashboard-outline-variant bg-dashboard-surface-lowest px-3 py-2 text-center text-xs font-semibold leading-5 text-dashboard-on-surface opacity-0 shadow-subtle transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+                  <span className="block text-dashboard-on-surface">{day.contributionCount} kontribusi</span>
+                  <span className="block font-medium text-dashboard-on-surface-variant">{formatContributionDate(day.date)}</span>
+                </span>
+              </span>
             ))}
           </div>
           <p className="mt-4 text-sm leading-6 text-dashboard-on-surface-variant">
@@ -552,7 +565,7 @@ function GitHubActivityCard({ activity }: { activity: GitHubActivity | null }) {
         className={`mt-4 inline-flex items-center gap-2 rounded-lg text-sm font-bold text-[#5f6f24] underline-offset-4 hover:underline dark:text-[#b6c65a] ${focusRing}`}
       >
         <BrandIcon name="github" />
-        Buka GitHub Ã¢â€ â€™
+        Buka GitHub →
       </Link>
     </article>
   );
@@ -562,6 +575,14 @@ function formatCommitDate(date: string) {
   return new Intl.DateTimeFormat("id-ID", {
     day: "numeric",
     month: "short",
+  }).format(new Date(date));
+}
+
+function formatContributionDate(date: string) {
+  return new Intl.DateTimeFormat("id-ID", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
   }).format(new Date(date));
 }
 
