@@ -1,14 +1,10 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import Image from "next/image";
-import { DesktopSidebar } from "@/components/desktop-sidebar";
 import { BrandIcon } from "@/components/icons/brand-icons";
-import { MobileSidebar } from "@/components/mobile-sidebar";
 import { TypingHeadline } from "@/components/typing-headline";
 
-import { featuredProjects, navItems, proofTickerItems, stack } from "@/lib/home-data";
-
-const focusRing =
-  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay-violet focus-visible:ring-offset-2 focus-visible:ring-offset-dashboard-background";
+import { featuredProjects, proofTickerItems, stack } from "@/lib/home-data";
+import { focusRing } from "@/lib/ui";
 
 type ContributionDay = {
   date: string;
@@ -135,25 +131,7 @@ export default async function Home() {
   const [githubActivity, githubCommits] = await Promise.all([getGitHubActivity(), getGitHubCommits()]);
 
   return (
-    <main className="min-h-screen bg-dashboard-background text-dashboard-on-background">
-      <div className="home-shell min-h-screen w-full">
-        <DesktopSidebar navItems={navItems} focusRing={focusRing} />
-
-        <section className="flex min-w-0 flex-1 flex-col transition-[padding] duration-300 ease-out lg:pl-[var(--sidebar-width,240px)]">
-          <header className="sticky top-0 z-20 flex items-center justify-between border-b border-dashboard-outline-variant/70 bg-dashboard-background/80 px-4 py-2.5 backdrop-blur-sm lg:hidden">
-            <Link href="/" className={`flex items-center gap-2.5 rounded-xl ${focusRing}`}>
-              <span className="grid size-8 place-items-center rounded-lg bg-pitch-black text-xs font-bold text-ghost-white">
-                R
-              </span>
-              <span>
-                <span className="block text-sm font-bold leading-none">Rayhan OS</span>
-                <span className="mt-1 block text-[10px] font-medium leading-none text-dashboard-on-surface-variant">Dashboard</span>
-              </span>
-            </Link>
-            <MobileSidebar navItems={navItems} focusRing={focusRing} />
-          </header>
-
-          <div className="mx-auto grid w-full max-w-[1200px] grid-cols-1 gap-4 px-5 py-5 sm:px-6 lg:grid-cols-12 lg:gap-5 lg:px-10 lg:py-8">
+    <div className="mx-auto grid w-full max-w-[1200px] grid-cols-1 gap-4 px-5 py-5 sm:px-6 lg:grid-cols-12 lg:gap-5 lg:px-10 lg:py-8">
             <section className="group flex flex-col justify-between gap-8 rounded-[2.25rem] border border-dashboard-outline-variant bg-dashboard-surface-lowest p-6 shadow-subtle lg:col-span-8 lg:p-8">
               <div>
                 <p className="mb-4 inline-flex rounded-full border border-dashboard-outline-variant bg-dashboard-surface-low px-2.5 py-1 text-[11px] font-semibold tracking-[0.03em] text-dashboard-on-surface-variant">
@@ -437,10 +415,7 @@ export default async function Home() {
                 </div>
               </section>
             </section>
-          </div>
-        </section>
-      </div>
-    </main>
+    </div>
   );
 }
 
@@ -529,13 +504,13 @@ function GitHubActivityCard({ activity }: { activity: GitHubActivity | null }) {
       {activity ? (
         <>
           <div
-            className="mt-5 grid grid-flow-col grid-rows-7 gap-1 overflow-hidden"
+            className="relative z-20 mt-5 grid grid-flow-col grid-rows-7 gap-1 overflow-visible"
             aria-label={`${activity.totalContributions} kontribusi GitHub tahun ini`}
           >
             {recentDays.map((day) => (
               <span key={day.date} className="group relative grid place-items-center" aria-label={`${day.contributionCount} kontribusi pada ${formatContributionDate(day.date)}`} tabIndex={0}>
                 <span className={`size-2.5 rounded-[3px] ${getContributionClass(day.contributionCount)}`} />
-                <span className="pointer-events-none absolute bottom-full left-1/2 z-10 mb-2 w-max max-w-36 -translate-x-1/2 rounded-xl border border-dashboard-outline-variant bg-dashboard-surface-lowest px-3 py-2 text-center text-xs font-semibold leading-5 text-dashboard-on-surface opacity-0 shadow-subtle transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+                <span className="pointer-events-none absolute bottom-full left-1/2 z-[999] mb-2 w-max max-w-36 -translate-x-1/2 rounded-xl border border-dashboard-outline-variant bg-dashboard-surface-lowest px-3 py-2 text-center text-xs font-semibold leading-5 text-dashboard-on-surface opacity-0 shadow-subtle transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
                   <span className="block text-dashboard-on-surface">{day.contributionCount} kontribusi</span>
                   <span className="block font-medium text-dashboard-on-surface-variant">{formatContributionDate(day.date)}</span>
                 </span>

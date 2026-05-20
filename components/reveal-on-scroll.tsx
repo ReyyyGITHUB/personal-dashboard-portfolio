@@ -44,8 +44,8 @@ export function RevealOnScroll({ children, className = "", delayMs = 0 }: Reveal
   return (
     <div
       ref={ref}
-      className={`transition-all duration-500 ease-out motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none ${
-        isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
+      className={`transition-all duration-500 ease-out motion-reduce:blur-none motion-reduce:opacity-100 motion-reduce:transition-none ${
+        isVisible ? "blur-none opacity-100" : "blur-[2px] opacity-0"
       } ${className}`}
       style={{ transitionDelay: isVisible ? `${delayMs}ms` : "0ms" }}
     >

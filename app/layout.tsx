@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import { AppShell } from "@/components/app-shell";
+import { ThemeScript } from "@/components/theme-script";
 import "./globals.css";
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -19,8 +21,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className={`${plusJakarta.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="id" suppressHydrationWarning className={`${plusJakarta.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col">
+        <ThemeScript />
+        <AppShell>{children}</AppShell>
+      </body>
     </html>
   );
 }
