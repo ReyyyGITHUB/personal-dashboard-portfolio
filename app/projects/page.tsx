@@ -1,17 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ProjectBrowser } from "@/components/project-browser";
-import { projects } from "@/lib/portfolio-data";
+import { featuredProject, projectStrengths, projects, sideProjects } from "@/lib/portfolio-data";
 import { focusRing } from "@/lib/ui";
-
-const featuredProject = projects[0];
-const sideProjects = projects.slice(1, 3);
-const projectStrengths = [
-  { title: "Dashboard UI", text: "Layout proof-first, cards jelas, route gampang discan.", tone: "bg-lime-pop/35" },
-  { title: "IoT Logic", text: "Sensor state, threshold, dan prototype flow buat keputusan cepat.", tone: "bg-azure-glow/25" },
-  { title: "UX Writing", text: "Copy manusia: konteks, peran, proses, hasil. Tanpa jargon kosong.", tone: "bg-ube-haze/30" },
-  { title: "Interaction", text: "Preview, shortcut, hover/tap state yang ada fungsinya.", tone: "bg-tangerine/15" },
-];
 
 export default function ProjectsPage() {
   return (
@@ -20,7 +11,7 @@ export default function ProjectsPage() {
         <article className="relative overflow-hidden rounded-[2.25rem] bg-clay-violet p-6 lg:col-span-8 lg:p-9">
           <div className="relative z-10 flex h-full min-h-[420px] flex-col justify-between gap-8">
             <div>
-              <p className="inline-flex rounded-full bg-ghost-white/15 px-3 py-1 text-xs font-black uppercase tracking-[0.18em] text-ghost-white/80">Project Route</p>
+              <p className="inline-flex rounded-full bg-ghost-white/15 px-3 py-1 text-xs font-black tracking-[0.04em] text-ghost-white/80">Project Route</p>
               <h1 className="mt-5 max-w-3xl text-5xl font-black tracking-[-0.08em] sm:text-6xl lg:text-7xl">Proof wall, bukan galeri pajangan.</h1>
               <p className="mt-5 max-w-xl text-base font-semibold leading-7 text-ghost-white/80">Semua project ditata kayak dashboard: ada konteks, role, stack, proses, dan hasil yang bisa dibaca cepat.</p>
             </div>
@@ -37,17 +28,17 @@ export default function ProjectsPage() {
         <div className="grid gap-4 lg:col-span-4">
           {sideProjects.map((project, index) => (
             <Link key={project.slug} href={`/projects/${project.slug}`} className={`group relative min-h-[210px] overflow-hidden rounded-[2rem] p-5 text-pitch-black shadow-subtle ${index === 0 ? "bg-lime-pop" : "bg-azure-glow"} ${focusRing}`}>
-              <p className="text-xs font-black uppercase tracking-[0.16em] opacity-70">{project.status}</p>
+              <p className="text-xs font-black tracking-[0.04em] opacity-70">{project.status}</p>
               <h2 className="mt-3 max-w-[13rem] text-2xl font-black tracking-[-0.05em]">{project.title}</h2>
               <p className="mt-2 max-w-[12rem] text-xs font-bold leading-5 opacity-70">{project.role} · {project.year}</p>
               <span className="absolute bottom-5 left-5 rounded-full bg-pitch-black px-3 py-1.5 text-xs font-black text-ghost-white">Case study →</span>
-              <div className="absolute -bottom-8 -right-8 size-40 transition-transform group-hover:scale-105 motion-reduce:transition-none">
+              <div className="absolute -bottom-8 -right-8 size-40 transition-transform group-hover:scale-[1.03] motion-reduce:transition-none">
                 <Image src={project.image} alt="" fill sizes="180px" className="object-contain" />
               </div>
             </Link>
           ))}
           <article className="rounded-[2rem] bg-dashboard-surface-lowest p-5 text-dashboard-on-surface shadow-subtle">
-            <p className="text-xs font-black uppercase tracking-[0.16em] text-dashboard-outline">Read system</p>
+            <p className="text-xs font-black tracking-[0.04em] text-dashboard-outline">Read system</p>
             <div className="mt-4 grid grid-cols-3 gap-2 text-center">
               {[
                 ["Role", "siapa"],
@@ -69,7 +60,7 @@ export default function ProjectsPage() {
       <section className="space-y-4">
         <div className="flex flex-wrap items-end justify-between gap-3 px-1">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-dashboard-outline">More signal</p>
+            <p className="text-xs font-black tracking-[0.04em] text-dashboard-outline">More signal</p>
             <h2 className="mt-2 text-3xl font-black tracking-[-0.06em]">Yang dicek dari project gue</h2>
           </div>
           <div className="rounded-full bg-dashboard-surface-low px-3 py-2 text-xs font-black text-dashboard-on-surface-variant">Frontend first · Static MVP</div>
@@ -86,7 +77,7 @@ export default function ProjectsPage() {
 
       <section className="grid gap-4 lg:grid-cols-12">
         <article className="relative overflow-hidden rounded-[2.5rem] bg-[#ffc8c4] p-6 text-pitch-black shadow-subtle lg:col-span-7 lg:p-8">
-          <p className="text-xs font-black uppercase tracking-[0.18em] opacity-60">Process</p>
+          <p className="text-xs font-black tracking-[0.04em] opacity-60">Process</p>
           <h2 className="mt-4 max-w-xl text-4xl font-black tracking-[-0.07em]">Case study pendek, tapi cukup buat ngerti cara mikir.</h2>
           <p className="mt-4 max-w-lg text-sm font-bold leading-6 opacity-70">Aku nggak numpuk dekorasi. Tiap detail project harus jawab: problem apa, aku ngapain, hasilnya apa, stack-nya relevan nggak.</p>
           <Link href={`/projects/${featuredProject.slug}`} className={`mt-6 inline-flex rounded-full bg-pitch-black px-5 py-3 text-sm font-black text-ghost-white ${focusRing}`}>Lihat sample</Link>
@@ -98,7 +89,7 @@ export default function ProjectsPage() {
         <div className="grid gap-4 lg:col-span-5">
           {["Dashboard page", "Prototype logic", "Frontend polish"].map((title, index) => (
             <article key={title} className={`rounded-[2rem] border border-dashboard-outline-variant p-5 shadow-subtle ${index === 2 ? "bg-pitch-black text-ghost-white" : "bg-dashboard-surface-lowest"}`}>
-              <p className={`text-xs font-black uppercase tracking-[0.16em] ${index === 2 ? "text-lime-pop" : "text-dashboard-outline"}`}>Service card</p>
+              <p className={`text-xs font-black tracking-[0.04em] ${index === 2 ? "text-lime-pop" : "text-dashboard-outline"}`}>Service card</p>
               <h3 className="mt-2 text-2xl font-black tracking-[-0.05em]">{title}</h3>
               <p className={`mt-2 text-sm font-semibold leading-6 ${index === 2 ? "text-ghost-white/70" : "text-dashboard-on-surface-variant"}`}>Bagian skill yang paling sering muncul dari kumpulan project ini.</p>
             </article>
@@ -109,7 +100,7 @@ export default function ProjectsPage() {
       <section className="overflow-hidden rounded-[2.75rem] bg-pitch-black p-6 text-ghost-white shadow-subtle lg:p-8">
         <div className="grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-center">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-lime-pop">Next step</p>
+            <p className="text-xs font-black tracking-[0.04em] text-lime-pop">Next step</p>
             <h2 className="mt-4 max-w-2xl text-4xl font-black tracking-[-0.07em] sm:text-5xl">Mau lihat detail cara kerjanya?</h2>
             <p className="mt-4 max-w-xl text-sm font-semibold leading-6 text-ghost-white/70">Masuk ke case study, cek prosesnya, lalu kontak kalau butuh dashboard/prototype yang mirip.</p>
             <div className="mt-6 flex flex-wrap gap-3">

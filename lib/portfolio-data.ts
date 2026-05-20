@@ -115,6 +115,34 @@ export const projects: Project[] = [
 
 export const featuredProjects = projects;
 
+export const featuredProject = projects[0];
+
+export const sideProjects = projects.slice(1, 3);
+
+export const projectStrengths = [
+  { title: "Dashboard UI", text: "Layout proof-first, cards jelas, route gampang discan.", tone: "bg-lime-pop/35" },
+  { title: "IoT Logic", text: "Sensor state, threshold, dan prototype flow buat keputusan cepat.", tone: "bg-azure-glow/25" },
+  { title: "UX Writing", text: "Copy manusia: konteks, peran, proses, hasil. Tanpa jargon kosong.", tone: "bg-ube-haze/30" },
+  { title: "Interaction", text: "Preview, shortcut, hover/tap state yang ada fungsinya.", tone: "bg-tangerine/15" },
+] as const;
+
+export const projectCategories = [
+  {
+    title: "Web Development",
+    keywords: ["next.js", "react", "tailwind", "frontend", "web", "dashboard"],
+  },
+  {
+    title: "IoT / Arduino",
+    keywords: ["arduino", "c++", "iot", "sensor", "automation"],
+  },
+  {
+    title: "UX / Interaction",
+    keywords: ["ux", "ux writing", "command ui", "a11y", "interaction", "konten"],
+  },
+] as const;
+
+export const projectStacks = ["All", ...Array.from(new Set(projects.flatMap((project) => project.stack)))] as const;
+
 export const stack = [
   { label: "Next.js", className: "border-pitch-black/15 bg-pitch-black text-ghost-white dark:border-ghost-white/20" },
   { label: "Tailwind", className: "border-azure-glow/30 bg-azure-glow/15 text-[#09687d]" },
@@ -151,6 +179,10 @@ export const proofTickerItems = [
 
 export function getProject(slug: string) {
   return projects.find((project) => project.slug === slug);
+}
+
+export function getProjectSearchText(project: Project) {
+  return `${project.title} ${project.type} ${project.summary} ${project.result} ${project.role} ${project.stack.join(" ")}`.toLowerCase();
 }
 
 export function getRelatedProjects(slug: string) {
