@@ -45,6 +45,7 @@ export default function ContactPage() {
               <li>Reference atau fitur wajib.</li>
             </ul>
           </article>
-        </aside>`r`n    </div>
+        </aside>
+    </div>
   );
 }

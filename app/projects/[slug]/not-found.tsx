@@ -9,6 +9,7 @@ export default function NotFound() {
           <h1 className="mt-3 text-4xl font-black tracking-[-0.06em]">Project belum ada.</h1>
           <p className="mt-3 text-sm font-semibold leading-6 text-dashboard-on-surface-variant">Slug ini tidak cocok dengan data static MVP.</p>
           <Link href="/projects" className={`mt-6 inline-flex rounded-full bg-pitch-black px-4 py-2 text-sm font-bold text-ghost-white ${focusRing}`}>Balik ke projects</Link>
-        </section>`r`n    </div>
+        </section>
+    </div>
   );
 }

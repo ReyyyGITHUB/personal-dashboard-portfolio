@@ -50,6 +50,7 @@ export default function JourneyPage() {
               ))}
             </div>
           </article>
-        </aside>`r`n    </div>
+        </aside>
+    </div>
   );
 }

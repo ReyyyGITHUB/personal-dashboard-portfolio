@@ -43,6 +43,7 @@ export default function StackPage() {
               </Link>
             ))}
           </div>
-        </aside>`r`n    </div>
+        </aside>
+    </div>
   );
 }
