@@ -1,55 +1,56 @@
-# PRD — Personal Dashboard Portfolio OS
+# PRD — Personal Dashboard Portfolio
 
 ## 1. Ringkasan
 
-Website portfolio personal berbentuk dashboard multi-page. Bukan one-page scroll. Visitor masuk ke pengalaman seperti membuka personal operating system: ada sidebar tetap, dashboard home, project proof, journey, skill radar, dan contact CTA.
+Personal Dashboard Portfolio adalah website portfolio multi-page yang terasa seperti personal dashboard OS. Bukan one-page scroll. Visitor masuk ke app shell dengan sidebar desktop, drawer mobile, dashboard home, project proof, journey, stack radar, dan contact CTA.
 
-Fokus utama produk:
+Fokus utama:
 
 - Proof: project, case study, result, stack.
 - Personality: journey, now/current focus, tone personal.
-- Interaction: command menu, hover preview, micro-interactions.
+- Interaction: command menu, hover preview, quick preview, micro-interactions.
 
-Design mengacu ke `guide/DESIGN.md`: clean, playful, light-first, rounded cards, aksen warna hemat, dashboard feel.
+Design mengikuti `guide/DESIGN.md`: clean, playful, light-first, rounded cards, restrained accent, dashboard feel.
 
-## 2. Tujuan
+## 2. Goals
 
-- Menampilkan karya secara profesional dan mudah discan.
-- Membuat visitor paham value dalam kurang dari 30 detik.
-- Membuat portfolio terasa hidup, bukan template statis.
-- Menjadi fondasi jangka panjang untuk CMS, comments, dan admin dashboard.
-- Tetap ringan di semua device.
+- Visitor paham value owner dalam kurang dari 30 detik.
+- Project terlihat credible lewat context, role, process, dan result.
+- Portfolio terasa hidup tanpa jadi berat.
+- UI tidak terasa AI slop atau template generik.
+- Code tetap optimized untuk all devices.
+- MVP jadi fondasi untuk Supabase CMS, Google auth, dan comments Phase 2.
 
 ## 3. Target User
 
 ### Visitor
 
-- Orang yang ingin tahu skill, project, dan personality owner.
+- Orang yang ingin melihat skill, project, dan personality owner.
 - Recruiter.
-- Client potensial.
+- Potential client.
 - Teman/dev lain.
-- Visitor dari sosial media.
+- Visitor dari social media.
 
 ### Admin / Owner
 
 - Pemilik portfolio.
-- Nanti bisa mengelola project lewat CMS/admin panel.
+- Phase 2: bisa manage project lewat custom CMS.
 
 ## 4. Product Direction
 
-Konsep utama: Personal Operating System.
+Konsep: personal dashboard / portfolio OS.
 
-Website terasa seperti dashboard pribadi:
+Rules:
 
-- Sidebar navigasi selalu ada di desktop.
-- Konten berubah per route.
-- Home sebagai overview.
-- Projects sebagai proof utama.
-- Journey sebagai personality.
-- Stack sebagai skill map.
-- Contact sebagai conversion.
-
-Bukan landing page panjang. Bukan UI AI generic. Bukan random gradient cards.
+- Multi-page app, bukan one-page scroll.
+- Desktop pakai persistent collapsible sidebar.
+- Mobile pakai drawer.
+- Content berubah per route.
+- Home jadi dashboard overview.
+- Projects jadi proof utama.
+- Journey jadi personality.
+- Stack jadi skill map.
+- Contact jadi conversion.
 
 ## 5. Sitemap
 
@@ -62,6 +63,7 @@ Bukan landing page panjang. Bukan UI AI generic. Bukan random gradient cards.
 │
 ├─ App Shell
 │  ├─ Persistent collapsible sidebar
+│  ├─ Mobile drawer
 │  ├─ Top utility bar
 │  ├─ Ctrl+K command menu
 │  └─ Route content area
@@ -74,204 +76,77 @@ Bukan landing page panjang. Bukan UI AI generic. Bukan random gradient cards.
 └─ /contact             Contact CTA
 ```
 
-## 6. Layout
-
-### Desktop Shell
-
-```txt
-┌───────────────┬─────────────────────────────────────────────┐
-│ SIDEBAR       │ TOP BAR                                     │
-│               │ Current page title      Ctrl+K / Status     │
-│ Logo/Name     ├─────────────────────────────────────────────┤
-│               │                                             │
-│ Home          │ PAGE CONTENT                                │
-│ Projects      │ route changes here                          │
-│ Journey       │ sidebar stays persistent                    │
-│ Stack         │                                             │
-│ Contact       │                                             │
-│               │                                             │
-│ Theme Toggle  │                                             │
-│ Collapse      │                                             │
-└───────────────┴─────────────────────────────────────────────┘
-```
-
-### Mobile Shell
-
-```txt
-┌─────────────────────────────────────┐
-│ Top Bar                             │
-│ Menu / Brand / Ctrl+K               │
-├─────────────────────────────────────┤
-│ Page Content                        │
-│                                     │
-│ Sidebar becomes drawer              │
-└─────────────────────────────────────┘
-```
-
-## 7. Core Pages
+## 6. Core Pages
 
 ### `/` Home Dashboard
 
-Tujuan: memberi overview cepat tentang owner.
+Purpose: overview cepat.
 
-Konten:
+Content:
 
 - Hero identity.
-- Role/headline.
-- Short personal tagline.
-- Stats cards:
-  - Projects.
-  - Experience.
-  - Tech stack.
-  - Availability.
+- Role/headline placeholder.
+- Short direct tagline.
+- CTA to projects and contact.
+- Stats: projects, experience, tech stack, availability.
+- Availability card: open/closed, response time, timezone.
 - Featured projects.
-- Availability card:
-  - Open/closed freelance.
-  - Response time.
-  - Location/timezone.
 - Now/current focus preview.
 - Journey preview.
 - Contact CTA.
 
-Wireframe:
-
-```txt
-┌───────────────┬─────────────────────────────────────────────┐
-│ SIDEBAR       │ Home                                        │
-│               ├─────────────────────────────────────────────┤
-│               │ ┌───────────────────────────┬─────────────┐ │
-│               │ │ HERO / IDENTITY           │ AVAILABILITY│ │
-│               │ │ Name + role               │ Open/Closed │ │
-│               │ │ Short direct line         │ Timezone    │ │
-│               │ │ CTA buttons               │ Response    │ │
-│               │ └───────────────────────────┴─────────────┘ │
-│               │                                             │
-│               │ ┌────────┬────────────┬────────┬─────────┐ │
-│               │ │Projects│Experience  │Stack   │Status   │ │
-│               │ └────────┴────────────┴────────┴─────────┘ │
-│               │                                             │
-│               │ Featured Projects                           │
-│               │ [Card] [Card] [Card]                        │
-│               │                                             │
-│               │ Now / Journey Preview                       │
-└───────────────┴─────────────────────────────────────────────┘
-```
-
 ### `/projects` Project Grid
 
-Tujuan: proof utama.
+Purpose: proof utama.
 
-Fitur:
+Features:
 
 - Search.
-- Filter by:
-  - Stack.
-  - Category.
-  - Paid/type.
-  - Featured.
-  - Year.
-- Project cards interaktif.
-- Hover reveal.
+- Filter by stack, category, type/payment, featured, year.
+- Interactive cards.
 - Status badge.
 - Stack chips.
-- Paid/personal/client label.
+- Type/payment label.
+- Desktop hover reveal.
+- Poster-first hover video.
+- Mobile tap preview.
 - Quick preview modal.
-- Poster-first video hover.
-
-Wireframe:
-
-```txt
-┌───────────────┬─────────────────────────────────────────────┐
-│ SIDEBAR       │ Projects                                    │
-│               ├─────────────────────────────────────────────┤
-│               │ Search bar                         Ctrl+K   │
-│               │                                             │
-│               │ Filters                                     │
-│               │ [All] [Featured] [Paid] [Next.js] [2026]   │
-│               │                                             │
-│               │ [Project Card] [Project Card] [Project Card]│
-│               │ [Project Card] [Project Card] [Project Card]│
-└───────────────┴─────────────────────────────────────────────┘
-```
+- Empty state.
 
 ### `/projects/[slug]` Project Case Study
 
-Tujuan: bikin visitor percaya.
+Purpose: bikin visitor percaya.
 
-Struktur case study:
+Structure:
 
-- Project title.
-- Short description.
+- Title.
+- Short summary.
 - Cover/gallery.
-- Metadata:
-  - Year.
-  - Stack.
-  - Type.
-  - Role.
-  - Status.
-- Problem.
-- Process.
-- Solution.
-- Result.
-- Links:
-  - Live demo.
-  - Repository.
-  - Preview.
-- Comments placeholder phase 2.
-
-Wireframe:
-
-```txt
-┌───────────────┬─────────────────────────────────────────────┐
-│ SIDEBAR       │ Project Detail                              │
-│               ├─────────────────────────────────────────────┤
-│               │ Title + summary              Meta           │
-│               │ [Live] [Repo] [Preview]      Year/Stack     │
-│               │                                             │
-│               │ Cover / Gallery                             │
-│               │                                             │
-│               │ Problem | Process | Solution                │
-│               │                                             │
-│               │ Result / Lessons / Proof                    │
-│               │                                             │
-│               │ Comments Phase 2                            │
-└───────────────┴─────────────────────────────────────────────┘
-```
+- Metadata: year, stack, type, role, status.
+- Links: live demo, repo, preview.
+- Case study: problem → process → solution → result.
+- Proof/result block.
+- Related projects if available.
+- Comments placeholder for Phase 2.
 
 ### `/journey` Timeline + Now
 
-Tujuan: personality.
+Purpose: personality.
 
-Konten:
+Content:
 
-- Current focus.
+- Now/current focus.
 - Currently learning.
 - Currently building.
 - Timeline milestones.
 - Learning notes.
-- Personal development story.
-
-Wireframe:
-
-```txt
-┌───────────────┬─────────────────────────────────────────────┐
-│ SIDEBAR       │ Journey                                     │
-│               ├─────────────────────────────────────────────┤
-│               │ Now                  Current Focus          │
-│               │ Learning             Building               │
-│               │                                             │
-│               │ Timeline                                    │
-│               │ 2026 ──● Portfolio OS                       │
-│               │ 2025 ──● Project milestone                  │
-│               │ 2024 ──● Web dev focus                      │
-└───────────────┴─────────────────────────────────────────────┘
-```
+- Project links when relevant.
 
 ### `/stack` Tech Radar
 
-Tujuan: skill map, bukan logo dump.
+Purpose: skill map, bukan logo dump.
 
-Model UI: orbit cards.
+Model: orbit tech radar.
 
 Zones:
 
@@ -280,7 +155,7 @@ Zones:
 - Learning.
 - Exploring.
 
-Setiap tech punya:
+Each tech item:
 
 - Name.
 - Category.
@@ -288,76 +163,45 @@ Setiap tech punya:
 - Use case.
 - Related projects.
 
-Wireframe:
-
-```txt
-┌───────────────┬─────────────────────────────────────────────┐
-│ SIDEBAR       │ Stack                                       │
-│               ├─────────────────────────────────────────────┤
-│               │ Tech Radar                                  │
-│               │                                             │
-│               │             Learning                        │
-│               │        Astro / Motion / AI                  │
-│               │                                             │
-│               │ Comfortable              Exploring          │
-│               │ Tailwind / Prisma        Three.js           │
-│               │                                             │
-│               │                Core                         │
-│               │       Next.js / React / TS                  │
-│               │                                             │
-│               │ Selected Tech Detail                        │
-│               │ - Used for                                  │
-│               │ - Confidence                                │
-│               │ - Related projects                          │
-└───────────────┴─────────────────────────────────────────────┘
-```
+Mobile must have readable fallback if orbit layout is cramped.
 
 ### `/contact` Contact CTA
 
-Tujuan: conversion.
+Purpose: conversion.
 
-Konten:
+Content:
 
-- Direct CTA.
+- Direct CTA copy.
 - Availability.
 - Email.
 - WhatsApp.
 - LinkedIn.
-- CV download.
+- CV download placeholder.
 - Timezone.
 - Response expectation.
+- Contact form prototype UI only.
 
-Wireframe:
+Form rule:
 
-```txt
-┌───────────────┬─────────────────────────────────────────────┐
-│ SIDEBAR       │ Contact                                     │
-│               ├─────────────────────────────────────────────┤
-│               │ Let's build something        Status         │
-│               │ Short direct copy            Available      │
-│               │                              Timezone       │
-│               │ [Email] [WhatsApp]           Response       │
-│               │ [LinkedIn] [Download CV]                    │
-└───────────────┴─────────────────────────────────────────────┘
-```
+- No backend submission in MVP.
+- Do not imply message was sent unless backend exists.
 
-## 8. Intro Preloader
+## 7. Intro Preloader
 
-Tujuan:
+Purpose:
 
 - Bukan gimmick.
 - Preload home-critical images.
-- Memberi setup-dashboard feel sebelum shell terbuka.
+- Give setup-dashboard feel.
 
 Behavior:
 
-- Muncul saat first load.
+- Spinner.
+- Short setup copy.
 - Light/dark aware.
-- Spinner sederhana.
-- Status text pendek.
-- Setelah asset home siap, dashboard shell muncul.
-- Tidak memblokir terlalu lama.
-- Jika asset lambat, lanjut dengan timeout aman.
+- Safe timeout.
+- Respect reduced motion.
+- Reveal app shell after preload or timeout.
 
 Copy options:
 
@@ -366,72 +210,46 @@ Copy options:
 - `Preparing projects`
 - `Opening interface`
 
-Final copy style:
+## 8. Navigation
 
-- Minimal.
-- Dashboard setup.
-- Tidak cinematic berlebihan.
-- Tidak terminal-heavy.
+Desktop:
 
-## 9. Navigation
-
-Sidebar:
-
-- Persistent di desktop.
-- Collapsible.
-- Icon-only mode.
+- Persistent sidebar.
+- Collapsible icon-only mode.
 - Active route state.
-- Theme toggle di bottom.
-- Collapse button di bottom.
-- Admin Panel button hanya muncul jika admin login nanti.
+- Theme toggle in sidebar bottom.
+- Collapse button in sidebar bottom.
 
 Mobile:
 
-- Sidebar jadi drawer.
-- Top bar berisi menu trigger, brand, command trigger.
-- Tidak ada permanent sidebar di mobile.
+- Drawer navigation.
+- Top bar trigger.
+- No permanent sidebar.
 
-Routing:
+Admin:
 
-- Multi-page.
-- Bukan one-page scroll.
-- Page transition subtle.
-- Sidebar tetap.
+- Admin panel button hidden in MVP.
+- Phase 2 visible after auth.
 
-## 10. Theme
+## 9. Theme
 
-Default:
+- Light default.
+- Dark supported.
+- Toggle in sidebar bottom.
+- Persist to `localStorage`.
+- Apply via `data-theme="light|dark"`.
+- Prevent initial flash.
+- Dark theme manually tuned.
+- No auto-invert.
 
-- Light theme.
-
-Theme support:
-
-- Light.
-- Dark.
-
-Toggle:
-
-- Sidebar bottom.
-
-Persistence:
-
-- Simpan ke `localStorage`.
-
-Rules:
-
-- Hindari flash theme saat initial load.
-- Light mengikuti `guide/DESIGN.md`.
-- Dark dibuat manual, bukan invert otomatis.
-- Accent color hemat.
-- No generic gradient spam.
-
-## 11. Command Menu
+## 10. Command Menu
 
 Shortcut:
 
-- `Ctrl + K`.
+- `Ctrl + K`
+- `Cmd + K`
 
-Fungsi MVP:
+MVP functions:
 
 - Search pages.
 - Search projects.
@@ -440,22 +258,19 @@ Fungsi MVP:
 
 Actions:
 
-- Go to Home.
-- Go to Projects.
-- Go to Journey.
-- Go to Stack.
-- Go to Contact.
+- Navigate page.
 - Open project.
 - Copy email.
 - Open WhatsApp.
-- Download CV.
+- Download CV placeholder.
 
 Performance:
 
-- Lazy load saat shortcut pertama.
-- Search index kecil dari static data.
+- Custom implementation.
+- Lazy-load on first trigger when practical.
+- Static small search index.
 
-## 12. Project Card Interaction
+## 11. Project Card Interaction
 
 Default:
 
@@ -464,57 +279,55 @@ Default:
 - Short description.
 - Stack chips.
 - Status badge.
-- Type/paid label.
-- CTA preview.
-- CTA case study.
+- Type/payment label.
+- Preview CTA.
+- Case study CTA.
 
-Hover desktop:
+Desktop hover:
 
 - Reveal extra metadata.
-- Lazy attach video source.
-- Autoplay muted video.
-- Smooth image/video transition.
+- Attach video source on demand.
+- Autoplay muted.
+- Smooth transition.
 
 Mobile:
 
+- Tap-to-preview.
 - No hover dependency.
-- Tap opens quick preview.
-- Video does not autoplay aggressively.
+- No aggressive autoplay.
 
 Video rules:
 
 - `preload="none"`.
 - Poster first.
-- Source only loaded on demand.
+- Source only loaded on interaction.
 - Respect `prefers-reduced-motion`.
 
-## 13. Quick Preview Modal
+## 12. Quick Preview Modal
 
 MVP behavior:
 
-- Uses screenshot/poster carousel.
-- Does not use iframe.
-- Shows title, summary, stack, links.
+- Screenshot/poster carousel.
+- No iframe.
+- Shows title, summary, stack, year, type, links.
 - CTA to full case study.
+- Accessible close behavior.
 
-Reason:
-
-- Iframe preview heavier.
-- Screenshot preview faster.
-- Better mobile performance.
-
-## 14. Data Strategy
+## 13. Data Strategy
 
 MVP:
 
-- Static mock data.
+- Static TypeScript mock data.
 - Placeholder designed media.
 - No database.
-- No CMS yet.
+- No CMS.
 
-Mock data should mirror future CMS shape.
+Phase 2:
 
-Project fields:
+- Supabase database.
+- Project-only custom CMS first.
+
+Mock data should mirror future CMS fields:
 
 - `id`
 - `slug`
@@ -540,7 +353,7 @@ Project fields:
 - `liveUrl`
 - `repoUrl`
 
-## 15. Phase 2 CMS
+## 14. Phase 2 CMS
 
 Scope:
 
@@ -550,24 +363,20 @@ Features:
 
 - Admin login.
 - Project CRUD.
-- Upload/manage cover image.
-- Upload/manage preview video.
+- Manage cover image and preview media.
 - Edit case study fields.
 - Manage stack/tags.
 - Publish/draft toggle.
 - Featured toggle.
 
-Auth:
+Tech direction:
 
-- Google login.
+- Supabase database.
+- Google admin login.
 - Admin email allowlist.
+- Storage approach validated before implementation.
 
-Admin button:
-
-- Hidden for visitors.
-- Visible after admin login.
-
-## 16. Phase 2 Comments
+## 15. Phase 2 Comments
 
 Scope:
 
@@ -575,34 +384,32 @@ Scope:
 
 Features:
 
-- Google login.
+- Google visitor login.
 - Comment per project.
+- Pending approval by default.
 - Admin moderation.
-- Hide/delete comments.
+- Hide/delete.
 - Basic anti-spam.
+- No nested replies first.
 
-Default moderation:
-
-- Pending approval first.
-
-## 17. Performance Requirements
+## 16. Performance Requirements
 
 Hard rules:
 
 - Optimized code by default.
-- Server components by default.
-- Client components only for interactive islands.
-- No full-page `"use client"`.
-- No heavy animation libraries unless needed.
+- Server Components by default.
+- Client Components only for interactive islands.
+- No full-page `"use client"` unless necessary.
+- No heavy animation libraries unless justified.
 - No video preload on initial page.
 - No loading all project media upfront.
 - No one massive component file.
 
 Images:
 
-- Use optimized image rendering.
-- Explicit width/height.
-- Lazy load non-critical images.
+- Optimized image rendering.
+- Explicit sizes.
+- Lazy-load non-critical images.
 - Preload only home-critical images during intro.
 
 Animations:
@@ -611,21 +418,14 @@ Animations:
 - Avoid layout-heavy animation.
 - Respect `prefers-reduced-motion`.
 
-JavaScript:
-
-- Keep initial JS small.
-- Lazy load command menu.
-- Lazy load modal logic.
-- Lazy load video only on interaction.
-
 Mobile:
 
-- Must work well on low-end devices.
-- No hover-only required UX.
+- Low-end device safe.
+- No hover-only critical actions.
 - Touch targets large enough.
-- Layout avoids horizontal overflow.
+- No horizontal overflow.
 
-## 18. UI Quality Rules
+## 17. UI Quality Rules
 
 No AI slop.
 
@@ -633,10 +433,10 @@ Avoid:
 
 - Generic glassmorphism.
 - Random gradients everywhere.
-- Same card layout repeated without reason.
+- Same card repeated without reason.
 - Vague copy like “I craft digital experiences”.
 - Decorative animation with no function.
-- Overcrowded dashboard widgets.
+- Overcrowded widgets.
 - Fake analytics that mean nothing.
 
 Require:
@@ -648,23 +448,26 @@ Require:
 - Human copy.
 - Balanced white space.
 - Strong but restrained accents.
-- Proof-oriented project content.
+- Proof-oriented content.
 
-## 19. MVP Scope
+## 18. MVP Scope
 
 Included:
 
 - Home dashboard.
 - Persistent collapsible sidebar.
+- Mobile drawer.
 - Light/dark theme.
 - Spinner preloader.
 - Project grid.
 - Smart filters.
 - Project cards with poster-first hover video.
+- Quick preview modal.
 - Project detail case study.
 - Journey page.
 - Stack tech radar.
 - Contact page.
+- Contact form prototype UI only.
 - Command menu.
 - Static mock data.
 - Placeholder designed media.
@@ -672,17 +475,18 @@ Included:
 
 Not included:
 
+- Real database integration.
 - CMS implementation.
-- Database.
 - Google auth.
 - Comments backend.
 - Admin dashboard.
+- Real contact form submission.
 - Theme accent picker.
 - Easter egg / terminal mode.
 - Blog.
 - Analytics dashboard.
 
-## 20. Acceptance Criteria
+## 19. Acceptance Criteria
 
 General:
 
@@ -696,7 +500,7 @@ General:
 Home:
 
 - Intro preloader appears.
-- Preloader has setup-dashboard copy.
+- Preloader uses setup-dashboard copy.
 - Home images are prepared before dashboard reveal.
 - Dashboard shows stats, featured projects, availability, journey preview.
 
@@ -707,21 +511,17 @@ Projects:
 - Hover video does not load before interaction.
 - Mobile can preview without hover.
 
-Project Detail:
-
-- Case study follows problem → process → solution → result.
-- Metadata visible.
-- Links clear.
-
 Stack:
 
 - Tech radar uses Core, Comfortable, Learning, Exploring.
 - Selecting tech shows detail.
+- Mobile fallback remains readable.
 
 Contact:
 
 - Contact actions are visible.
 - Availability is clear.
+- Prototype form does not claim successful backend delivery.
 
 Performance:
 
@@ -730,7 +530,7 @@ Performance:
 - No obvious layout shift.
 - UI remains smooth on mobile.
 
-## 21. Open Content Placeholders
+## 20. Open Content Placeholders
 
 Use mock-first values for:
 

@@ -1,0 +1,18 @@
+<svg width="240" height="180" viewBox="0 0 240 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="240" height="180" rx="24" fill="#F5F3FF"/>
+  <!-- Sheet Outline -->
+  <rect x="42" y="24" width="156" height="132" rx="16" fill="#FFFFFF" stroke="#E6E8EC" stroke-width="2"/>
+  <!-- Paragraph lines -->
+  <rect x="62" y="44" width="116" height="8" rx="4" fill="#C1B0FF"/>
+  <rect x="62" y="60" width="86" height="8" rx="4" fill="#DAD4C8"/>
+  <!-- Highlighted speech bubble / focus card -->
+  <rect x="62" y="82" width="102" height="38" rx="10" fill="#111111" stroke="#E6E8EC" stroke-width="1.5"/>
+  <rect x="74" y="92" width="60" height="6" rx="3" fill="#FFFFFF"/>
+  <rect x="74" y="104" width="40" height="6" rx="3" fill="#C1B0FF"/>
+  <!-- Sparkles -->
+  <path d="M 180 44 L 183 48 L 187 49 L 183 50 L 182 54 L 180 50 L 176 49 L 180 48 Z" fill="#FF7614"/>
+  <path d="M 194 62 L 196 64 L 198 65 L 196 66 L 195 68 L 194 66 L 192 65 L 194 64 Z" fill="#C1B0FF"/>
+  <!-- Pencil icon / cursor -->
+  <rect x="156" y="120" width="32" height="10" rx="4" transform="rotate(-45 156 120)" fill="#111111"/>
+  <path d="M 174 98 L 181 91 L 183 95 L 176 102 Z" fill="#FF7614"/>
+</svg>
