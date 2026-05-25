@@ -1,0 +1,21 @@
+<svg width="240" height="180" viewBox="0 0 240 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="240" height="180" rx="24" fill="#F0F8FF"/>
+  <!-- Arduino Board Board Outline -->
+  <rect x="36" y="32" width="168" height="116" rx="14" fill="#FFFFFF" stroke="#E6E8EC" stroke-width="2"/>
+  <!-- Board header pin connectors -->
+  <rect x="52" y="24" width="108" height="8" rx="2" fill="#111111"/>
+  <rect x="52" y="148" width="108" height="8" rx="2" fill="#111111"/>
+  <!-- Microcontroller Chip -->
+  <rect x="100" y="68" width="48" height="48" rx="6" fill="#111111"/>
+  <rect x="112" y="80" width="24" height="24" rx="4" fill="#3BD3FD"/>
+  <!-- Power connector -->
+  <rect x="24" y="52" width="20" height="32" rx="4" fill="#DAD4C8" stroke="#E6E8EC" stroke-width="1.5"/>
+  <!-- Sensor lines / Dotted wave -->
+  <path d="M 52 90 Q 72 60 92 90 T 132 90 T 172 90" fill="none" stroke="#3BD3FD" stroke-width="2.5" stroke-dasharray="4 4" stroke-linecap="round"/>
+  <!-- Threshold Indicator Circle -->
+  <circle cx="178" cy="90" r="16" fill="#FFFFFF" stroke="#E6E8EC" stroke-width="1.5"/>
+  <circle cx="178" cy="90" r="8" fill="#3BD3FD"/>
+  <!-- Small capacitors / resistors -->
+  <rect x="62" y="52" width="10" height="14" rx="2" fill="#DAD4C8"/>
+  <rect x="62" y="114" width="14" height="10" rx="2" fill="#DAD4C8"/>
+</svg>

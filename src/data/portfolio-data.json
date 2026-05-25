@@ -1,0 +1,630 @@
+{
+  "projects": [
+    {
+      "slug": "portfolio-os",
+      "title": "Modern Portfolio",
+      "type": "Dashboard personal",
+      "summary": "Portfolio multi-page yang terasa seperti lightweight dashboard, bukan landing page panjang.",
+      "result": "Shell multi-halaman, kartu bukti, dan struktur rute yang rapi.",
+      "stack": [
+        "Next.js",
+        "Tailwind",
+        "UX"
+      ],
+      "image": "/projects/portfolio-os.svg",
+      "accent": "bg-vivid-sky",
+      "role": "Frontend",
+      "status": "Prototype",
+      "year": "2026",
+      "problem": "Portfolio lama gampang jadi template generik and susah nunjukin bukti kerja dalam 30 detik.",
+      "process": [
+        "Kunci arah dashboard OS.",
+        "Pecah konten jadi route proof, journey, stack, contact.",
+        "Bangun card yang selalu punya konteks, peran, hasil."
+      ],
+      "solution": "App shell ringan dengan sidebar, dashboard home, and case study yang bisa diskalakan ke CMS phase 2.",
+      "proof": [
+        "Home dashboard prerendered static.",
+        "Konten proof-first, bukan filler stat palsu.",
+        "Struktur siap untuk command menu dan preview modal."
+      ],
+      "links": [
+        {
+          "label": "Lihat halaman",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "label": "Repository",
+          "href": "#",
+          "disabled": true
+        }
+      ]
+    },
+    {
+      "slug": "smart-farm-monitor",
+      "title": "Smart Farm Monitor",
+      "type": "Prototipe IoT",
+      "summary": "Monitoring farm kecil dengan logika sensor, threshold, dan UI status cepat.",
+      "result": "Logika sensor, tampilan dashboard, dan alur otomasi Arduino.",
+      "stack": [
+        "Arduino",
+        "C++",
+        "UI"
+      ],
+      "image": "/projects/smart-farm-monitor.svg",
+      "accent": "bg-lime-pop",
+      "role": "IoT Logic",
+      "status": "Prototype",
+      "year": "2025",
+      "problem": "Data sensor mentah sulit dibaca cepat saat perlu keputusan watering atau warning.",
+      "process": [
+        "Definisikan threshold kelembapan dan suhu.",
+        "Buat state normal, warning, critical.",
+        "Rancang dashboard ringkas untuk operator non-teknis."
+      ],
+      "solution": "Prototype monitoring yang mengubah bacaan sensor jadi status visual dan aksi yang jelas.",
+      "proof": [
+        "Rule threshold sederhana, mudah debug.",
+        "UI fokus ke status, bukan angka berlebihan.",
+        "Siap disambung ke data logger."
+      ],
+      "links": [
+        {
+          "label": "Preview",
+          "href": "#",
+          "disabled": true
+        }
+      ]
+    },
+    {
+      "slug": "case-study-system",
+      "title": "Sistem Studi Kasus",
+      "type": "Format bukti proyek",
+      "summary": "Template narasi proyek supaya tiap karya punya masalah, proses, peran, dan hasil yang jelas.",
+      "result": "Layout cerita reusable untuk masalah, peran, proses, dan hasil.",
+      "stack": [
+        "UX Writing",
+        "Konten",
+        "Next.js"
+      ],
+      "image": "/projects/case-study-system.svg",
+      "accent": "bg-tangerine",
+      "role": "UX Writing",
+      "status": "Draft",
+      "year": "2026",
+      "problem": "Project card sering cuma cantik, tapi tidak menjawab owner ngapain dan impact-nya apa.",
+      "process": [
+        "Audit pola case study portfolio.",
+        "Buang section yang tidak perlu.",
+        "Susun blok bukti yang konsisten."
+      ],
+      "solution": "Format singkat yang bisa dipakai semua project tanpa bikin halaman terasa seperti artikel panjang.",
+      "proof": [
+        "Setiap project punya role dan result.",
+        "Bisa dipakai untuk proyek frontend dan IoT.",
+        "Cocok untuk static MVP dan CMS phase 2."
+      ],
+      "links": [
+        {
+          "label": "Baca format",
+          "href": "#",
+          "disabled": true
+        }
+      ]
+    },
+    {
+      "slug": "command-workspace",
+      "title": "Command Workspace",
+      "type": "Prototipe interaksi",
+      "summary": "Model navigasi keyboard-first untuk lompat route, cari project, dan akses action cepat.",
+      "result": "Model navigasi keyboard-first buat eksplorasi portfolio yang cepat.",
+      "stack": [
+        "React",
+        "Command UI",
+        "A11y"
+      ],
+      "image": "/projects/command-workspace.svg",
+      "accent": "bg-azure-glow",
+      "role": "Interaction",
+      "status": "Prototype",
+      "year": "2026",
+      "problem": "Visitor yang tahu tujuannya perlu akses cepat tanpa scroll panjang.",
+      "process": [
+        "Petakan command utama.",
+        "Prioritaskan route dan project search.",
+        "Pastikan fitur bukan hover-only."
+      ],
+      "solution": "Command menu ringan yang nanti bisa lazy-loaded sebagai interactive island.",
+      "proof": [
+        "Shortcut jelas di sidebar.",
+        "Action tetap punya alternatif klik/tap.",
+        "Tidak masuk initial JS sebelum dibutuhkan."
+      ],
+      "links": [
+        {
+          "label": "Prototype",
+          "href": "#",
+          "disabled": true
+        }
+      ]
+    }
+  ],
+  "techItems": [
+    {
+      "id": "core",
+      "name": "Rayhan OS Stack",
+      "type": "core",
+      "group": "Core",
+      "x": 515,
+      "y": 426,
+      "iconUrl": "https://cdn.simpleicons.org/simpleicons/cbd810",
+      "note": "Pusat fondasi teknologi portfolio. Hubungan antar-elemen menunjukkan alur kerja terintegrasi.",
+      "colorClassLight": "bg-[#cbd810] text-[#000000] border-[#cbd810] shadow-[0_0_15px_rgba(203,216,16,0.25)]",
+      "colorClassDark": "bg-[#cbd810] text-[#000000] border-[#cbd810] shadow-[0_0_20px_rgba(203,216,16,0.45)]"
+    },
+    {
+      "id": "frontend",
+      "name": "Frontend",
+      "type": "category",
+      "group": "Category",
+      "x": 210,
+      "y": 230,
+      "iconUrl": "https://cdn.simpleicons.org/react/3859f9",
+      "note": "Pembangunan antarmuka interaktif yang cepat, modular, dan ramah pengguna.",
+      "colorClassLight": "bg-[#ffffff] text-[#3859f9] border-[#3859f9] hover:bg-[#3859f9]/5",
+      "colorClassDark": "bg-[#17171d] text-[#3859f9] border-[#3859f9] hover:bg-[#3859f9]/10"
+    },
+    {
+      "id": "backend",
+      "name": "Backend",
+      "type": "category",
+      "group": "Category",
+      "x": 210,
+      "y": 630,
+      "iconUrl": "https://cdn.simpleicons.org/nodedotjs/3c873a",
+      "note": "Mesin server, manajemen data, optimasi API, dan alur integrasi logic.",
+      "colorClassLight": "bg-[#ffffff] text-[#3c873a] border-[#3c873a] hover:bg-[#3c873a]/5",
+      "colorClassDark": "bg-[#17171d] text-[#55c055] border-[#55c055] hover:bg-[#55c055]/10"
+    },
+    {
+      "id": "styling",
+      "name": "Styling",
+      "type": "category",
+      "group": "Category",
+      "x": 850,
+      "y": 230,
+      "iconUrl": "https://cdn.simpleicons.org/tailwindcss/06b6d4",
+      "note": "Sistem token desain, layout responsif adaptif, dan micro-animations.",
+      "colorClassLight": "bg-[#ffffff] text-[#09687d] border-[#429dff] hover:bg-[#429dff]/5",
+      "colorClassDark": "bg-[#17171d] text-[#429dff] border-[#429dff] hover:bg-[#429dff]/10"
+    },
+    {
+      "id": "design",
+      "name": "Design",
+      "type": "category",
+      "group": "Category",
+      "x": 850,
+      "y": 630,
+      "iconUrl": "https://cdn.simpleicons.org/figma/c1b0ff",
+      "note": "Perancangan UX, prototyping interaktif, serta implementasi aset grafis.",
+      "colorClassLight": "bg-[#ffffff] text-[#5b43b3] border-[#c1b0ff] hover:bg-[#c1b0ff]/5",
+      "colorClassDark": "bg-[#17171d] text-[#c1b0ff] border-[#c1b0ff] hover:bg-[#c1b0ff]/10"
+    },
+    {
+      "id": "iot",
+      "name": "IoT Logic",
+      "type": "category",
+      "group": "Category",
+      "x": 530,
+      "y": 660,
+      "iconUrl": "https://cdn.simpleicons.org/arduino/ff7614",
+      "note": "Logika hardware, pemrograman mikrokontroler, pembacaan sensor dan otomasi fisik.",
+      "colorClassLight": "bg-[#ffffff] text-[#ff7614] border-[#ff7614] hover:bg-[#ff7614]/5",
+      "colorClassDark": "bg-[#17171d] text-[#ff7614] border-[#ff7614] hover:bg-[#ff7614]/10"
+    },
+    {
+      "id": "database",
+      "name": "Database",
+      "type": "category",
+      "group": "Category",
+      "x": 530,
+      "y": 200,
+      "iconUrl": "https://cdn.simpleicons.org/supabase/3ecf8e",
+      "note": "Penyimpanan data relasional & NoSQL, manajemen tabel, otentikasi backend, and cloud storage.",
+      "colorClassLight": "bg-[#ffffff] text-[#3ecf8e] border-[#3ecf8e] hover:bg-[#3ecf8e]/5",
+      "colorClassDark": "bg-[#17171d] text-[#3ecf8e] border-[#3ecf8e] hover:bg-[#3ecf8e]/10"
+    },
+    {
+      "id": "nextjs",
+      "name": "Next.js",
+      "type": "tech",
+      "group": "Frontend",
+      "x": 40,
+      "y": 80,
+      "level": "Daily",
+      "note": "App Router, RSC-first, optimal static rendering, dynamic routing.",
+      "confidence": 95,
+      "iconUrl": "https://cdn.simpleicons.org/nextdotjs/333333",
+      "projects": [
+        "portfolio-os",
+        "case-study-system"
+      ],
+      "colorClassLight": "bg-[#ffffff] text-[#000000] border-[#dad4c8] hover:border-[#3859f9]",
+      "colorClassDark": "bg-[#17171d] text-[#f6f3ee] border-[#34343c] hover:border-[#3859f9]"
+    },
+    {
+      "id": "react",
+      "name": "React",
+      "type": "tech",
+      "group": "Backend",
+      "x": 40,
+      "y": 170,
+      "level": "Daily",
+      "note": "Interactive Islands, React Hooks, modular UI, virtual DOM management.",
+      "confidence": 90,
+      "iconUrl": "https://cdn.simpleicons.org/react/61DAFB",
+      "projects": [
+        "portfolio-os",
+        "command-workspace"
+      ],
+      "colorClassLight": "bg-[#ffffff] text-[#000000] border-[#dad4c8] hover:border-[#3859f9]",
+      "colorClassDark": "bg-[#17171d] text-[#f6f3ee] border-[#34343c] hover:border-[#3859f9]"
+    },
+    {
+      "id": "htmlcss",
+      "name": "HTML/CSS",
+      "type": "tech",
+      "group": "Frontend",
+      "x": 40,
+      "y": 260,
+      "level": "Daily",
+      "note": "Struktur semantik standar web, markup valid, serta layouting vanilla responsif.",
+      "confidence": 95,
+      "iconUrl": "https://cdn.simpleicons.org/html5/E34F26",
+      "projects": [
+        "portfolio-os"
+      ],
+      "colorClassLight": "bg-[#ffffff] text-[#000000] border-[#dad4c8] hover:border-[#3859f9]",
+      "colorClassDark": "bg-[#17171d] text-[#f6f3ee] border-[#34343c] hover:border-[#3859f9]"
+    },
+    {
+      "id": "astro",
+      "name": "Astro",
+      "type": "tech",
+      "group": "Frontend",
+      "x": 40,
+      "y": 350,
+      "level": "Learning",
+      "note": "Content-driven framework, zero-JS by default, ultra-fast static output.",
+      "confidence": 65,
+      "iconUrl": "https://cdn.simpleicons.org/astro/FF5D01",
+      "projects": [],
+      "colorClassLight": "bg-[#ffffff] text-[#000000] border-[#dad4c8] hover:border-[#3859f9]",
+      "colorClassDark": "bg-[#17171d] text-[#f6f3ee] border-[#34343c] hover:border-[#3859f9]"
+    },
+    {
+      "id": "laravel",
+      "name": "Laravel",
+      "type": "tech",
+      "group": "Frontend",
+      "x": 210,
+      "y": 90,
+      "level": "Exploring",
+      "note": "PHP MVC framework, Blade template engine, web routing, basic backend support.",
+      "confidence": 50,
+      "iconUrl": "https://cdn.simpleicons.org/laravel/FF2D20",
+      "projects": [],
+      "colorClassLight": "bg-[#ffffff] text-[#000000] border-[#dad4c8] hover:border-[#3859f9]",
+      "colorClassDark": "bg-[#17171d] text-[#f6f3ee] border-[#34343c] hover:border-[#3859f9]"
+    },
+    {
+      "id": "expressjs",
+      "name": "Express.js",
+      "type": "tech",
+      "group": "Backend",
+      "x": 40,
+      "y": 510,
+      "level": "Comfortable",
+      "note": "Minimalist Node.js backend router, REST API endpoints, JSON middleware.",
+      "confidence": 80,
+      "iconUrl": "https://cdn.simpleicons.org/express/666666",
+      "projects": [],
+      "colorClassLight": "bg-[#ffffff] text-[#000000] border-[#dad4c8] hover:border-[#3c873a]",
+      "colorClassDark": "bg-[#17171d] text-[#f6f3ee] border-[#34343c] hover:border-[#55c055]"
+    },
+    {
+      "id": "javascript",
+      "name": "JavaScript",
+      "type": "tech",
+      "group": "Backend",
+      "x": 40,
+      "y": 600,
+      "level": "Daily",
+      "note": "Logika dinamis browser, asynchronous programming, manipulasi array & DOM.",
+      "confidence": 90,
+      "iconUrl": "https://cdn.simpleicons.org/javascript/F7DF1E",
+      "projects": [
+        "portfolio-os",
+        "command-workspace",
+        "smart-farm-monitor"
+      ],
+      "colorClassLight": "bg-[#ffffff] text-[#000000] border-[#dad4c8] hover:border-[#3c873a]",
+      "colorClassDark": "bg-[#17171d] text-[#f6f3ee] border-[#34343c] hover:border-[#55c055]"
+    },
+    {
+      "id": "typescript",
+      "name": "TypeScript",
+      "type": "tech",
+      "group": "Backend",
+      "x": 40,
+      "y": 690,
+      "level": "Comfortable",
+      "note": "Pengetikan statis, interface schemas, reusable types untuk struktur yang solid.",
+      "confidence": 85,
+      "iconUrl": "https://cdn.simpleicons.org/typescript/3178C6",
+      "projects": [
+        "portfolio-os"
+      ],
+      "colorClassLight": "bg-[#ffffff] text-[#000000] border-[#dad4c8] hover:border-[#3c873a]",
+      "colorClassDark": "bg-[#17171d] text-[#f6f3ee] border-[#34343c] hover:border-[#55c055]"
+    },
+    {
+      "id": "python",
+      "name": "Python",
+      "type": "tech",
+      "group": "Backend",
+      "x": 40,
+      "y": 780,
+      "level": "Exploring",
+      "note": "Scripting sederhana, manipulasi data array, IoT telemetry parser.",
+      "confidence": 60,
+      "iconUrl": "https://cdn.simpleicons.org/python/3776AB",
+      "projects": [],
+      "colorClassLight": "bg-[#ffffff] text-[#000000] border-[#dad4c8] hover:border-[#3c873a]",
+      "colorClassDark": "bg-[#17171d] text-[#f6f3ee] border-[#34343c] hover:border-[#55c055]"
+    },
+    {
+      "id": "php",
+      "name": "PHP",
+      "type": "tech",
+      "group": "Backend",
+      "x": 210,
+      "y": 770,
+      "level": "Exploring",
+      "note": "Server-side template rendering, basic database connection, standard web scripting.",
+      "confidence": 55,
+      "iconUrl": "https://cdn.simpleicons.org/php/777BB4",
+      "projects": [],
+      "colorClassLight": "bg-[#ffffff] text-[#000000] border-[#dad4c8] hover:border-[#3c873a]",
+      "colorClassDark": "bg-[#17171d] text-[#f6f3ee] border-[#34343c] hover:border-[#55c055]"
+    },
+    {
+      "id": "tailwind",
+      "name": "Tailwind",
+      "type": "tech",
+      "group": "Styling",
+      "x": 1040,
+      "y": 80,
+      "level": "Daily",
+      "note": "CSS utility class, token-based variables, responsive layouting, v4 optimization.",
+      "confidence": 95,
+      "iconUrl": "https://cdn.simpleicons.org/tailwindcss/06B6D4",
+      "projects": [
+        "portfolio-os",
+        "case-study-system"
+      ],
+      "colorClassLight": "bg-[#ffffff] text-[#000000] border-[#dad4c8] hover:border-[#429dff]",
+      "colorClassDark": "bg-[#17171d] text-[#f6f3ee] border-[#34343c] hover:border-[#429dff]"
+    },
+    {
+      "id": "css",
+      "name": "CSS",
+      "type": "tech",
+      "group": "Styling",
+      "x": 1040,
+      "y": 170,
+      "level": "Daily",
+      "note": "Custom properties (CSS Variables), transition, keyframe animation, grid layout.",
+      "confidence": 90,
+      "iconUrl": "https://cdn.simpleicons.org/css3/1572B6",
+      "projects": [
+        "portfolio-os"
+      ],
+      "colorClassLight": "bg-[#ffffff] text-[#000000] border-[#dad4c8] hover:border-[#429dff]",
+      "colorClassDark": "bg-[#17171d] text-[#f6f3ee] border-[#34343c] hover:border-[#429dff]"
+    },
+    {
+      "id": "shadcn",
+      "name": "shadcn/ui",
+      "type": "tech",
+      "group": "Styling",
+      "x": 1040,
+      "y": 260,
+      "level": "Comfortable",
+      "note": "Reusable component primitives, Radix UI accessible shell, Tailwind styled.",
+      "confidence": 85,
+      "iconUrl": "https://cdn.simpleicons.org/shadcnui/333333",
+      "projects": [
+        "portfolio-os"
+      ],
+      "colorClassLight": "bg-[#ffffff] text-[#000000] border-[#dad4c8] hover:border-[#429dff]",
+      "colorClassDark": "bg-[#17171d] text-[#f6f3ee] border-[#34343c] hover:border-[#429dff]"
+    },
+    {
+      "id": "reactbits",
+      "name": "Reactbits",
+      "type": "tech",
+      "group": "Styling",
+      "x": 850,
+      "y": 90,
+      "level": "Learning",
+      "note": "Vibrant animations library, custom keyframes, interactive visual elements.",
+      "confidence": 70,
+      "iconUrl": "https://cdn.simpleicons.org/react/61DAFB",
+      "projects": [],
+      "colorClassLight": "bg-[#ffffff] text-[#000000] border-[#dad4c8] hover:border-[#429dff]",
+      "colorClassDark": "bg-[#17171d] text-[#f6f3ee] border-[#34343c] hover:border-[#429dff]"
+    },
+    {
+      "id": "figma",
+      "name": "Figma",
+      "type": "tech",
+      "group": "Design",
+      "x": 1040,
+      "y": 510,
+      "level": "Comfortable",
+      "note": "Wireframe layouting, vector elements, auto-layout, interactive state prototype.",
+      "confidence": 85,
+      "iconUrl": "https://cdn.simpleicons.org/figma/F24E1E",
+      "projects": [
+        "portfolio-os",
+        "case-study-system"
+      ],
+      "colorClassLight": "bg-[#ffffff] text-[#000000] border-[#dad4c8] hover:border-[#c1b0ff]",
+      "colorClassDark": "bg-[#17171d] text-[#f6f3ee] border-[#34343c] hover:border-[#c1b0ff]"
+    },
+    {
+      "id": "canva",
+      "name": "Canva",
+      "type": "tech",
+      "group": "Design",
+      "x": 1040,
+      "y": 600,
+      "level": "Daily",
+      "note": "Desain konten cepat, visual mockup banner, aset grafis presentasi.",
+      "confidence": 90,
+      "iconUrl": "https://cdn.simpleicons.org/canva/00C4CC",
+      "projects": [],
+      "colorClassLight": "bg-[#ffffff] text-[#000000] border-[#dad4c8] hover:border-[#c1b0ff]",
+      "colorClassDark": "bg-[#17171d] text-[#f6f3ee] border-[#34343c] hover:border-[#c1b0ff]"
+    },
+    {
+      "id": "claude-design",
+      "name": "Claude Design",
+      "type": "tech",
+      "group": "Design",
+      "x": 1040,
+      "y": 690,
+      "level": "Comfortable",
+      "note": "Rekomendasi heuristik layout, review heuristik UI, penyusunan rancangan skema.",
+      "confidence": 80,
+      "iconUrl": "https://cdn.simpleicons.org/anthropic/e06b53",
+      "projects": [
+        "portfolio-os"
+      ],
+      "colorClassLight": "bg-[#ffffff] text-[#000000] border-[#dad4c8] hover:border-[#c1b0ff]",
+      "colorClassDark": "bg-[#17171d] text-[#f6f3ee] border-[#34343c] hover:border-[#c1b0ff]"
+    },
+    {
+      "id": "stitch-ai",
+      "name": "Stitch AI",
+      "type": "tech",
+      "group": "Design",
+      "x": 850,
+      "y": 770,
+      "level": "Learning",
+      "note": "Eksperimen mockup interface berbasis AI prompts untuk inspirasi visual.",
+      "confidence": 65,
+      "iconUrl": "https://cdn.simpleicons.org/openai/412991",
+      "projects": [],
+      "colorClassLight": "bg-[#ffffff] text-[#000000] border-[#dad4c8] hover:border-[#c1b0ff]",
+      "colorClassDark": "bg-[#17171d] text-[#f6f3ee] border-[#34343c] hover:border-[#c1b0ff]"
+    },
+    {
+      "id": "arduino",
+      "name": "Arduino",
+      "type": "tech",
+      "group": "IoT",
+      "x": 410,
+      "y": 770,
+      "level": "Prototype",
+      "note": "Mikrokontroler prototyping, sensor ADC, sirkuit otomasi, UART logic.",
+      "confidence": 85,
+      "iconUrl": "https://cdn.simpleicons.org/arduino/00979D",
+      "projects": [
+        "smart-farm-monitor"
+      ],
+      "colorClassLight": "bg-[#ffffff] text-[#000000] border-[#dad4c8] hover:border-[#ff7614]",
+      "colorClassDark": "bg-[#17171d] text-[#f6f3ee] border-[#34343c] hover:border-[#ff7614]"
+    },
+    {
+      "id": "esp32",
+      "name": "ESP32",
+      "type": "tech",
+      "group": "IoT",
+      "x": 670,
+      "y": 770,
+      "level": "Prototype",
+      "note": "Microcontroller Wi-Fi & Bluetooth, IoT web server, MQTT communication.",
+      "confidence": 80,
+      "iconUrl": "https://cdn.simpleicons.org/espressif/E20A17",
+      "projects": [
+        "smart-farm-monitor"
+      ],
+      "colorClassLight": "bg-[#ffffff] text-[#000000] border-[#dad4c8] hover:border-[#ff7614]",
+      "colorClassDark": "bg-[#17171d] text-[#f6f3ee] border-[#34343c] hover:border-[#ff7614]"
+    },
+    {
+      "id": "mysql",
+      "name": "MySQL",
+      "type": "tech",
+      "group": "Database",
+      "x": 370,
+      "y": 90,
+      "level": "Comfortable",
+      "note": "Relational database server, SQL standard scripting, query optimizations, table schemas.",
+      "confidence": 80,
+      "iconUrl": "https://cdn.simpleicons.org/mysql/4479A1",
+      "projects": [],
+      "colorClassLight": "bg-[#ffffff] text-[#000000] border-[#dad4c8] hover:border-[#3ecf8e]",
+      "colorClassDark": "bg-[#17171d] text-[#f6f3ee] border-[#34343c] hover:border-[#3ecf8e]"
+    },
+    {
+      "id": "supabase",
+      "name": "Supabase",
+      "type": "tech",
+      "group": "Database",
+      "x": 540,
+      "y": 50,
+      "level": "Comfortable",
+      "note": "PostgreSQL database integration, real-time client sync, security rules, auth & store.",
+      "confidence": 85,
+      "iconUrl": "https://cdn.simpleicons.org/supabase/3ecf8e",
+      "projects": [
+        "portfolio-os"
+      ],
+      "colorClassLight": "bg-[#ffffff] text-[#000000] border-[#dad4c8] hover:border-[#3ecf8e]",
+      "colorClassDark": "bg-[#17171d] text-[#f6f3ee] border-[#34343c] hover:border-[#3ecf8e]"
+    },
+    {
+      "id": "firebase",
+      "name": "Firebase",
+      "type": "tech",
+      "group": "Database",
+      "x": 710,
+      "y": 90,
+      "level": "Prototype",
+      "note": "NoSQL Firestore collections, real-time SDK, serverless authentication, dynamic config.",
+      "confidence": 75,
+      "iconUrl": "https://cdn.simpleicons.org/firebase/FFCA28",
+      "projects": [],
+      "colorClassLight": "bg-[#ffffff] text-[#000000] border-[#dad4c8] hover:border-[#3ecf8e]",
+      "colorClassDark": "bg-[#17171d] text-[#f6f3ee] border-[#34343c] hover:border-[#3ecf8e]"
+    },
+    {
+      "id": "bootstrap",
+      "name": "Bootstrap",
+      "type": "tech",
+      "group": "Styling",
+      "x": 850,
+      "y": 370,
+      "level": "Learning",
+      "note": "Masih ngulik tentang Bootstrap ini ;]",
+      "iconUrl": "https://cdn.simpleicons.org/bootstrap/7952B3",
+      "projects": [],
+      "colorClassLight": "bg-[#ffffff] text-[#000000] border-[#dad4c8] hover:border-[#429dff]",
+      "colorClassDark": "bg-[#17171d] text-[#f6f3ee] border-[#34343c] hover:border-[#429dff]"
+    }
+  ]
+}
