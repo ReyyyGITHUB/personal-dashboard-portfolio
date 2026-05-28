@@ -4,7 +4,7 @@ import { Suspense } from "react";
 import { BrandIcon } from "@/components/ui/icons/brand-icons";
 import { TypingHeadline } from "@/components/ui/typing-headline";
 import { ProfileCard3D } from "@/components/ui/profile-card-3d";
-import { GitHubCommitFeedClient } from "@/components/ui/github-commit-feed-client";
+import { GitHubReadmeCard } from "@/components/ui/github-readme-card";
 
 import { featuredProjects, proofTickerItems, stack } from "@/data/home-data";
 import { focusRing } from "@/lib/ui";
@@ -133,7 +133,7 @@ async function getGitHubCommits(): Promise<GitHubCommit[]> {
 export default function Home() {
   return (
     <div className="mx-auto grid w-full max-w-[1200px] grid-cols-1 gap-4 px-5 py-5 sm:px-6 lg:grid-cols-12 lg:gap-5 lg:px-10 lg:py-8">
-            <section className="group flex flex-col justify-between gap-8 rounded-[2.25rem] border border-dashboard-outline-variant bg-dashboard-surface-lowest p-6 shadow-subtle lg:col-span-8 lg:p-8">
+            <section className="group flex flex-col justify-between gap-8 rounded-[2.25rem] border border-dashboard-outline-variant bg-dashboard-surface-lowest p-6 shadow-subtle lg:col-span-8 lg:p-8 min-w-0">
               <div>
                 <p className="mb-4 inline-flex rounded-full border border-dashboard-outline-variant bg-dashboard-surface-low px-2.5 py-1 text-[11px] font-semibold tracking-[0.03em] text-dashboard-on-surface-variant">
                    Dashboard playful · Sistem UI · Prototipe IoT
@@ -186,8 +186,7 @@ export default function Home() {
               </div>
             </section>
             <ProfileCard3D focusRing={focusRing} />
-
-            <section className="proof-ticker overflow-hidden rounded-3xl border border-dashboard-outline-variant bg-dashboard-surface-lowest py-3 shadow-subtle lg:col-span-12">
+            <section className="proof-ticker min-w-0 overflow-hidden rounded-3xl border border-dashboard-outline-variant bg-dashboard-surface-lowest py-3 shadow-subtle lg:col-span-12">
               <div className="proof-ticker-track flex gap-2 px-3">
                 {[...proofTickerItems, ...proofTickerItems, ...proofTickerItems, ...proofTickerItems].map((item, index) => (
                   <span
@@ -203,7 +202,7 @@ export default function Home() {
               </div>
             </section>
 
-            <section className="lg:col-span-8">
+            <section className="lg:col-span-8 min-w-0">
               <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
                 <div>
                   <p className="text-xs font-semibold tracking-[0.03em] text-dashboard-outline">Bukti</p>
@@ -221,7 +220,7 @@ export default function Home() {
               <div className="relative">
                 <div className="grid gap-4 pb-20 md:grid-cols-2">
                   {featuredProjects.map((project) => (
-                    <div key={project.title} className="h-full">
+                    <div key={project.title} className="h-full min-w-0">
                       <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-dashboard-outline-variant bg-dashboard-surface-lowest p-4 shadow-subtle transition-colors hover:border-dashboard-outline md:min-h-[520px]">
                     <ProjectThumbnail alt={`${project.title} preview`} src={project.image} />
                     <div className="mt-4 flex items-center gap-2">
@@ -289,7 +288,7 @@ export default function Home() {
               </div>
             </section>
 
-            <section className="grid gap-4 lg:col-span-4">
+            <section className="grid gap-4 lg:col-span-4 min-w-0">
               <Suspense fallback={<GitHubWidgetsFallback />}>
                 <GitHubWidgets />
               </Suspense>
@@ -369,12 +368,12 @@ function ProjectThumbnail({ alt, src }: { alt: string; src: string }) {
 }
 
 async function GitHubWidgets() {
-  const [githubActivity, githubCommits] = await Promise.all([getGitHubActivity(), getGitHubCommits()]);
+  const githubActivity = await getGitHubActivity();
 
   return (
     <>
       <GitHubActivityCard activity={githubActivity} />
-      <GitHubCommitFeedClient initialCommits={githubCommits} focusRing={focusRing} />
+      <GitHubReadmeCard />
     </>
   );
 }
@@ -431,19 +430,21 @@ function GitHubActivityCard({ activity }: { activity: GitHubActivity | null }) {
 
       {activity ? (
         <>
-          <div
-            className="relative z-20 mt-5 grid grid-flow-col grid-rows-7 gap-1 overflow-visible"
-            aria-label={`${activity.totalContributions} kontribusi GitHub tahun ini`}
-          >
-            {recentDays.map((day) => (
-              <span key={day.date} className="group relative grid place-items-center" aria-label={`${day.contributionCount} kontribusi pada ${formatContributionDate(day.date)}`} tabIndex={0}>
-                <span className={`size-2.5 rounded-[3px] ${getContributionClass(day.contributionCount)}`} />
-                <span className="pointer-events-none absolute bottom-full left-1/2 z-[999] mb-2 w-max max-w-36 -translate-x-1/2 rounded-xl border border-dashboard-outline-variant bg-dashboard-surface-lowest px-3 py-2 text-center text-xs font-semibold leading-5 text-dashboard-on-surface opacity-0 shadow-subtle transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
-                  <span className="block text-dashboard-on-surface">{day.contributionCount} kontribusi</span>
-                  <span className="block font-medium text-dashboard-on-surface-variant">{formatContributionDate(day.date)}</span>
+          <div className="overflow-x-auto pb-1 -mx-1 px-1">
+            <div
+              className="relative z-20 mt-5 grid grid-flow-col grid-rows-7 gap-1 overflow-visible min-w-[220px]"
+              aria-label={`${activity.totalContributions} kontribusi GitHub tahun ini`}
+            >
+              {recentDays.map((day) => (
+                <span key={day.date} className="group relative grid place-items-center" aria-label={`${day.contributionCount} kontribusi pada ${formatContributionDate(day.date)}`} tabIndex={0}>
+                  <span className={`size-2.5 rounded-[3px] ${getContributionClass(day.contributionCount)}`} />
+                  <span className="pointer-events-none absolute bottom-full left-1/2 z-[999] mb-2 w-max max-w-36 -translate-x-1/2 rounded-xl border border-dashboard-outline-variant bg-dashboard-surface-lowest px-3 py-2 text-center text-xs font-semibold leading-5 text-dashboard-on-surface opacity-0 shadow-subtle transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+                    <span className="block text-dashboard-on-surface">{day.contributionCount} kontribusi</span>
+                    <span className="block font-medium text-dashboard-on-surface-variant">{formatContributionDate(day.date)}</span>
+                  </span>
                 </span>
-              </span>
-            ))}
+              ))}
+            </div>
           </div>
           <p className="mt-4 text-sm leading-6 text-dashboard-on-surface-variant">
             {activity.totalContributions} kontribusi tahun ini. Cache, bukan realtime.

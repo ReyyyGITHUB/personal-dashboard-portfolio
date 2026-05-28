@@ -38,7 +38,7 @@ export function ProfileCard3D({ focusRing }: ProfileCard3DProps) {
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative lg:col-span-4 min-h-[500px] w-full [perspective:1000px] select-none"
+      className="relative lg:col-span-4 h-[520px] w-full max-w-[360px] mx-auto lg:max-w-none min-w-0 [perspective:1000px] select-none"
     >
       {/* Lubang Gantungan ID Card Fisik */}
       <div className="absolute -top-3.5 left-1/2 z-40 size-7 -translate-x-1/2 rounded-full border-2 border-dashboard-outline-variant bg-dashboard-surface-lowest shadow-subtle flex items-center justify-center">

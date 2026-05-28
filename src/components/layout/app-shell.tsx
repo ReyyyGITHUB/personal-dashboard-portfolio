@@ -32,8 +32,8 @@ export function AppShell({ children }: AppShellProps) {
   }, []);
 
   return (
-    <main className="min-h-screen bg-dashboard-background text-dashboard-on-background">
-      <div className="home-shell min-h-screen w-full">
+    <main className="min-h-screen w-full max-w-full overflow-x-hidden bg-dashboard-background text-dashboard-on-background">
+      <div className="home-shell min-h-screen w-full overflow-x-hidden">
         <DesktopSidebar navItems={navItems} focusRing={focusRing} />
         <section className="flex min-w-0 flex-1 flex-col transition-[padding] duration-300 ease-out motion-reduce:transition-none lg:pl-[var(--sidebar-width,240px)]">
           <header className="sticky top-0 z-20 flex items-center justify-between border-b border-dashboard-outline-variant/70 bg-dashboard-background/80 px-4 py-2.5 backdrop-blur-sm lg:hidden">
