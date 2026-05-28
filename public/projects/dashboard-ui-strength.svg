@@ -1,0 +1,26 @@
+<svg width="240" height="180" viewBox="0 0 240 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="240" height="180" rx="24" fill="#F9F8F6"/>
+  <!-- Sidebar -->
+  <rect x="12" y="12" width="48" height="156" rx="10" fill="#FFFFFF" stroke="#E6E8EC" stroke-width="1.5"/>
+  <rect x="20" y="24" width="32" height="12" rx="4" fill="#CBD810"/>
+  <rect x="20" y="44" width="32" height="8" rx="3" fill="#DAD4C8"/>
+  <rect x="20" y="58" width="32" height="8" rx="3" fill="#DAD4C8"/>
+  <rect x="20" y="72" width="32" height="8" rx="3" fill="#DAD4C8"/>
+  <!-- Main Grid -->
+  <rect x="68" y="12" width="160" height="156" rx="10" fill="#FFFFFF" stroke="#E6E8EC" stroke-width="1.5"/>
+  <!-- Top bar -->
+  <rect x="78" y="22" width="80" height="12" rx="4" fill="#111111"/>
+  <circle cx="212" cy="28" r="8" fill="#DAD4C8"/>
+  <!-- Metric Card 1 -->
+  <rect x="78" y="44" width="66" height="48" rx="8" fill="#F9F8F6" stroke="#E6E8EC" stroke-width="1"/>
+  <circle cx="111" cy="62" r="10" fill="none" stroke="#E6E8EC" stroke-width="3"/>
+  <circle cx="111" cy="62" r="10" fill="none" stroke="#CBD810" stroke-width="3" stroke-dasharray="40 60"/>
+  <rect x="91" y="80" width="40" height="4" rx="2" fill="#55534E"/>
+  <!-- Metric Card 2 -->
+  <rect x="152" y="44" width="66" height="48" rx="8" fill="#F9F8F6" stroke="#E6E8EC" stroke-width="1"/>
+  <rect x="162" y="56" width="36" height="8" rx="4" fill="#3859F9"/>
+  <rect x="162" y="70" width="46" height="4" rx="2" fill="#DAD4C8"/>
+  <!-- Bottom Card Chart -->
+  <rect x="78" y="100" width="140" height="56" rx="8" fill="#F9F8F6" stroke="#E6E8EC" stroke-width="1"/>
+  <path d="M 88 140 L 110 120 L 132 130 L 154 112 L 176 122 L 198 108" fill="none" stroke="#CBD810" stroke-width="3" stroke-linecap="round"/>
+</svg>

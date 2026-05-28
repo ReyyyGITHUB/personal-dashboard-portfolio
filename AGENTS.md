@@ -85,3 +85,9 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - Run focused checks after changes when practical.
 - For UI work, verify desktop and mobile behavior.
 - For performance-sensitive work, check that media and client JS are not loaded eagerly.
+
+## Git Workflow
+
+- After completing code changes and validation, automatically stage, commit, and push.
+- Use clear conventional commit messages.
+- Do not commit unrelated user changes.
